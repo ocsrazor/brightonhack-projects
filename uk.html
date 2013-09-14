@@ -8,9 +8,14 @@
   stroke: #ccc;
 }
 
-.state {
+.bgCounty {
+  fill: #000;
+  stroke: #fff;
+}
+
+.county {
   fill: #ccc;
-  stroke: #666;
+  /*stroke: #666;*/
 }
 
 </style>
@@ -18,24 +23,14 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script>
-/*
-// Ratio of Obese (BMI >= 30) in U.S. Adults, CDC 2008
-var valueById = [
-   NaN, .187, .198,  NaN, .133, .175, .151,  NaN, .100, .125,
-  .171,  NaN, .172, .133,  NaN, .108, .142, .167, .201, .175,
-  .159, .169, .177, .141, .163, .117, .182, .153, .195, .189,
-  .134, .163, .133, .151, .145, .130, .139, .169, .164, .175,
-  .135, .152, .169,  NaN, .132, .167, .139, .184, .159, .140,
-  .146, .157,  NaN, .139, .183, .160, .143
-];
-*/
+
 var path = d3.geo.path();
 
 var projection = d3.geo.albers()
   .center([0, 55.4])
   .rotate([4.4, 0])
   .parallels([50, 60])
-  .scale([3800])
+  .scale([10000])
   .translate([250, 250]);
 
   path = d3.geo.path()
@@ -44,28 +39,48 @@ var projection = d3.geo.albers()
 
 var svg = d3.select("body").append("svg")
     .attr("width", 960)
-    .attr("height", 1000);
+    .attr("height", 5000);
 
-var temp;
+//var temp;
 
-d3.json("/uk.json", function(error, uk) {
-    temp = uk;
-    svg.append("path")
-      .datum(uk[0].geo_json)
-      .attr("d", path);
+d3.json("/uk2.json", function(error, uk) {
+    //temp = uk;
+    
+    // svg.append("path")
+    //   .datum(uk[0].geo_json)
+    //   .attr("class", "land")
+    //   .attr("d", path);
 
-      svg.selectAll(".county")
+    drawMap(uk, "bgCounty", false);
+    drawMap(uk, "county", true);
+});
+
+function drawMap(uk, className, scaleCounties){
+  svg.selectAll("." + className)
         .data(uk)
         .enter()
         .append("path")
-        .classed("county", true)
+        .classed(className, true)
         .attr("d", function(d){
           return path(d.geo_json)
         })
-        .on("click", function(d){
-          alert(d.county);
+        // .on("click", function(d){
+        //   alert(d["2011 Q2"]);
+        // })
+  
+      if (scaleCounties){
+        svg.selectAll("." + className).attr("transform", function(d) {
+          var centroid = path.centroid(d.geo_json),
+              x = centroid[0],
+              y = centroid[1];
+
+          return "translate(" + x + "," + y + ")"
+              + "scale(" + (d["2011 Q4"] || 0) + ")"
+              + "translate(" + -x + "," + -y + ")";
         })
-});
+      }
+      
+}
   // svg.append("path")
   //     .datum(topojson.feature(uk, uk.objects.land))
   //     .attr("class", "land")
