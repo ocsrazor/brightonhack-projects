@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <!--
+    <script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js" charset="utf-8"></script>
+      
+    -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+        var scale = d3.scale.linear().domain([0, 10]).range(['#fc0', '#f00']);
+
+        //Width and height
+        var w = 400;
+        var h = 600;
+
+        //Define map projection
+        // var projection = d3.geo.mercator()
+        //                  .translate([w/2, h/2])
+        //                  .scale([800]);
+                         
+       var projection = d3.geo.mercator()
+           .scale(2000)
+           .translate([300,2600])
+           .precision(.1);
+
+        //Define path generator
+        var path = d3.geo.path()
+                    .projection(projection);
+
+        //Create SVG element
+        var svg = d3.select("body")
+                    .append("svg")
+                    .attr("width", w)
+                    .attr("height", h);
+        
+        var map;
+        
+        //Load in GeoJSON data
+        d3.json("regions.json", function(json) {
+
+            //Bind data and create one path per GeoJSON feature
+            map = svg.selectAll("path")
+               .data(json.features)
+               .enter()
+               .append("path")
+               .attr("d", function(d){
+                 console.log(d);
+                 return path(d.geometry)
+               })
+               .style('fill', '#ccc')
+               .transition()
+               .duration(1200)
+               .style("fill", function(d, i) { 
+                 return scale(d.properties.money);
+               });
+        });
+
+      </script>
+    </body>
+  </body>
+</html>
+  
+    
