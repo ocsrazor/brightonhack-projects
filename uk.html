@@ -41,21 +41,28 @@ var svg = d3.select("body").append("svg")
     .attr("width", 960)
     .attr("height", 5000);
 
-//var temp;
+var uk;
 
-d3.json("/uk2.json", function(error, uk) {
-    //temp = uk;
-    
+var quarters = ["2011 Q4", "2011 Q3", "2011 Q4", "2012 Q1", "2012 Q2", "2012 Q3", "2012 Q4", "2013 Q1"];
+
+d3.json("/uk2.json", function(error, data) {
+
     // svg.append("path")
     //   .datum(uk[0].geo_json)
     //   .attr("class", "land")
     //   .attr("d", path);
 
-    drawMap(uk, "bgCounty", false);
-    drawMap(uk, "county", true);
+    uk = data;
+
+    drawMap(0);
 });
 
-function drawMap(uk, className, scaleCounties){
+function drawMap(quarter){
+  drawCounties("bgCounty", false);
+  drawCounties("county", true, quarter);
+}
+
+function drawCounties(className, scaleCounties, quarter){
   svg.selectAll("." + className)
         .data(uk)
         .enter()
@@ -69,13 +76,14 @@ function drawMap(uk, className, scaleCounties){
         // })
   
       if (scaleCounties){
+
         svg.selectAll("." + className).attr("transform", function(d) {
           var centroid = path.centroid(d.geo_json),
               x = centroid[0],
               y = centroid[1];
 
           return "translate(" + x + "," + y + ")"
-              + "scale(" + (d["2011 Q4"] || 0) + ")"
+              + "scale(" + (d[quarters[quarter]] || 0) + ")"
               + "translate(" + -x + "," + -y + ")";
         })
       }
