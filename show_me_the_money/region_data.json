@@ -1,0 +1,1742 @@
+{
+  "2005": {
+    "East Midlands": {
+      "self_employed": {
+        "individuals": "238",
+        "median": "16800",
+        "mean": "244"
+      },
+      "tax": {
+        "individuals": "2090",
+        "median": "1920",
+        "mean": "3320"
+      },
+      "pension": {
+        "individuals": "426",
+        "median": "8440",
+        "mean": "9880"
+      },
+      "total": {
+        "individuals": "2090",
+        "median": "15400",
+        "mean": "20100"
+      },
+      "employment": {
+        "individuals": "1620",
+        "median": "14800",
+        "mean": "18500"
+      },
+      "investment": {
+        "individuals": "426",
+        "median": "43",
+        "mean": "1740"
+      }
+    },
+    "West Midlands": {
+      "self_employed": {
+        "individuals": "293",
+        "median": "10100",
+        "mean": "16700"
+      },
+      "tax": {
+        "individuals": "2490",
+        "median": "1920",
+        "mean": "3220"
+      },
+      "pension": {
+        "individuals": "521",
+        "median": "8200",
+        "mean": "9980"
+      },
+      "total": {
+        "individuals": "2490",
+        "median": "15400",
+        "mean": "19800"
+      },
+      "employment": {
+        "individuals": "1960",
+        "median": "15100",
+        "mean": "18400"
+      },
+      "investment": {
+        "individuals": "521",
+        "median": "43",
+        "mean": "1640"
+      }
+    },
+    "South West": {
+      "self_employed": {
+        "individuals": "362",
+        "median": "9970",
+        "mean": "16200"
+      },
+      "tax": {
+        "individuals": "2500",
+        "median": "1920",
+        "mean": "3350"
+      },
+      "pension": {
+        "individuals": "634",
+        "median": "8790",
+        "mean": "10800"
+      },
+      "total": {
+        "individuals": "2500",
+        "median": "15600",
+        "mean": "20300"
+      },
+      "employment": {
+        "individuals": "1830",
+        "median": "15000",
+        "mean": "18500"
+      },
+      "investment": {
+        "individuals": "634",
+        "median": "46",
+        "mean": "2110"
+      }
+    },
+    "North East": {
+      "self_employed": {
+        "individuals": "97",
+        "median": "9890",
+        "mean": "16500"
+      },
+      "tax": {
+        "individuals": "1170",
+        "median": "1790",
+        "mean": "2830"
+      },
+      "pension": {
+        "individuals": "254",
+        "median": "8510",
+        "mean": "9950"
+      },
+      "total": {
+        "individuals": "1170",
+        "median": "14800",
+        "mean": "18500"
+      },
+      "employment": {
+        "individuals": "936",
+        "median": "14900",
+        "mean": "17600"
+      },
+      "investment": {
+        "individuals": "254",
+        "median": "41",
+        "mean": "1150"
+      }
+    },
+    "South East": {
+      "self_employed": {
+        "individuals": "549",
+        "median": "10900",
+        "mean": "19700"
+      },
+      "tax": {
+        "individuals": "3990",
+        "median": "2410",
+        "mean": "4970"
+      },
+      "pension": {
+        "individuals": "939",
+        "median": "9210",
+        "mean": "12200"
+      },
+      "total": {
+        "individuals": "3990",
+        "median": "17800",
+        "mean": "25600"
+      },
+      "employment": {
+        "individuals": "2990",
+        "median": "17500",
+        "mean": "24000"
+      },
+      "investment": {
+        "individuals": "939",
+        "median": "48",
+        "mean": "2650"
+      }
+    },
+    "North West": {
+      "self_employed": {
+        "individuals": "339",
+        "median": "9790",
+        "mean": "17000"
+      },
+      "tax": {
+        "individuals": "3160",
+        "median": "1810",
+        "mean": "3150"
+      },
+      "pension": {
+        "individuals": "707",
+        "median": "8410",
+        "mean": "10000"
+      },
+      "total": {
+        "individuals": "3160",
+        "median": "14900",
+        "mean": "19500"
+      },
+      "employment": {
+        "individuals": "2460",
+        "median": "14800",
+        "mean": "18300"
+      },
+      "investment": {
+        "individuals": "707",
+        "median": "43",
+        "mean": "1650"
+      }
+    },
+    "Yorkshire and the Humber": {
+      "self_employed": {
+        "individuals": "264",
+        "median": "9550",
+        "mean": "16500"
+      },
+      "tax": {
+        "individuals": "2340",
+        "median": "1880",
+        "mean": "3110"
+      },
+      "pension": {
+        "individuals": "488",
+        "median": "8600",
+        "mean": "10200"
+      },
+      "total": {
+        "individuals": "2340",
+        "median": "15100",
+        "mean": "19400"
+      },
+      "employment": {
+        "individuals": "1840",
+        "median": "15000",
+        "mean": "18100"
+      },
+      "investment": {
+        "individuals": "488",
+        "median": "42",
+        "mean": "1610"
+      }
+    },
+    "London": {
+      "self_employed": {
+        "individuals": "464",
+        "median": "11200",
+        "mean": "25200"
+      },
+      "tax": {
+        "individuals": "3330",
+        "median": "2710",
+        "mean": "6160"
+      },
+      "pension": {
+        "individuals": "564",
+        "median": "8800",
+        "mean": "11500"
+      },
+      "total": {
+        "individuals": "3330",
+        "median": "19100",
+        "mean": "29100"
+      },
+      "employment": {
+        "individuals": "2620",
+        "median": "19500",
+        "mean": "27300"
+      },
+      "investment": {
+        "individuals": "564",
+        "median": "45",
+        "mean": "2910"
+      }
+    },
+    "East of England": {
+      "self_employed": {
+        "individuals": "375",
+        "median": "11000",
+        "mean": "19500"
+      },
+      "tax": {
+        "individuals": "2740",
+        "median": "2210",
+        "mean": "4320"
+      },
+      "pension": {
+        "individuals": "598",
+        "median": "8750",
+        "mean": "11000"
+      },
+      "total": {
+        "individuals": "2740",
+        "median": "16900",
+        "mean": "23500"
+      },
+      "employment": {
+        "individuals": "2090",
+        "median": "16600",
+        "mean": "21800"
+      },
+      "investment": {
+        "individuals": "598",
+        "median": "46",
+        "mean": "2260"
+      }
+    }
+  },
+  "2006": {
+    "East Midlands": {
+      "self_employed": {
+        "individuals": "235",
+        "median": "17000",
+        "mean": "241"
+      },
+      "tax": {
+        "individuals": "2190",
+        "median": "1990",
+        "mean": "3440"
+      },
+      "pension": {
+        "individuals": "461",
+        "median": "8370",
+        "mean": "10100"
+      },
+      "total": {
+        "individuals": "2190",
+        "median": "15900",
+        "mean": "20800"
+      },
+      "employment": {
+        "individuals": "1700",
+        "median": "15200",
+        "mean": "19000"
+      },
+      "investment": {
+        "individuals": "461",
+        "median": "132",
+        "mean": "2210"
+      }
+    },
+    "West Midlands": {
+      "self_employed": {
+        "individuals": "285",
+        "median": "10000",
+        "mean": "16900"
+      },
+      "tax": {
+        "individuals": "2640",
+        "median": "1990",
+        "mean": "3350"
+      },
+      "pension": {
+        "individuals": "543",
+        "median": "8380",
+        "mean": "10200"
+      },
+      "total": {
+        "individuals": "2640",
+        "median": "15900",
+        "mean": "20500"
+      },
+      "employment": {
+        "individuals": "2100",
+        "median": "15400",
+        "mean": "18900"
+      },
+      "investment": {
+        "individuals": "543",
+        "median": "120",
+        "mean": "2130"
+      }
+    },
+    "South West": {
+      "self_employed": {
+        "individuals": "365",
+        "median": "9870",
+        "mean": "16600"
+      },
+      "tax": {
+        "individuals": "2620",
+        "median": "1950",
+        "mean": "3430"
+      },
+      "pension": {
+        "individuals": "668",
+        "median": "8750",
+        "mean": "10900"
+      },
+      "total": {
+        "individuals": "2620",
+        "median": "15900",
+        "mean": "20900"
+      },
+      "employment": {
+        "individuals": "1930",
+        "median": "15100",
+        "mean": "19000"
+      },
+      "investment": {
+        "individuals": "668",
+        "median": "169",
+        "mean": "2530"
+      }
+    },
+    "North East": {
+      "self_employed": {
+        "individuals": "100",
+        "median": "9040",
+        "mean": "16200"
+      },
+      "tax": {
+        "individuals": "1260",
+        "median": "1800",
+        "mean": "2940"
+      },
+      "pension": {
+        "individuals": "263",
+        "median": "8780",
+        "mean": "10100"
+      },
+      "total": {
+        "individuals": "1260",
+        "median": "15000",
+        "mean": "19100"
+      },
+      "employment": {
+        "individuals": "1020",
+        "median": "14700",
+        "mean": "18000"
+      },
+      "investment": {
+        "individuals": "263",
+        "median": "107",
+        "mean": "1620"
+      }
+    },
+    "South East": {
+      "self_employed": {
+        "individuals": "552",
+        "median": "10900",
+        "mean": "20300"
+      },
+      "tax": {
+        "individuals": "4330",
+        "median": "2470",
+        "mean": "5120"
+      },
+      "pension": {
+        "individuals": "1020",
+        "median": "9170",
+        "mean": "12300"
+      },
+      "total": {
+        "individuals": "4330",
+        "median": "18300",
+        "mean": "26400"
+      },
+      "employment": {
+        "individuals": "3270",
+        "median": "17800",
+        "mean": "24600"
+      },
+      "investment": {
+        "individuals": "1020",
+        "median": "181",
+        "mean": "3140"
+      }
+    },
+    "North West": {
+      "self_employed": {
+        "individuals": "336",
+        "median": "9680",
+        "mean": "17600"
+      },
+      "tax": {
+        "individuals": "3310",
+        "median": "1910",
+        "mean": "3330"
+      },
+      "pension": {
+        "individuals": "733",
+        "median": "8530",
+        "mean": "10200"
+      },
+      "total": {
+        "individuals": "3310",
+        "median": "15500",
+        "mean": "20500"
+      },
+      "employment": {
+        "individuals": "2600",
+        "median": "15200",
+        "mean": "19000"
+      },
+      "investment": {
+        "individuals": "733",
+        "median": "133",
+        "mean": "2100"
+      }
+    },
+    "Yorkshire and the Humber": {
+      "self_employed": {
+        "individuals": "267",
+        "median": "9750",
+        "mean": "16900"
+      },
+      "tax": {
+        "individuals": "2430",
+        "median": "1910",
+        "mean": "3280"
+      },
+      "pension": {
+        "individuals": "524",
+        "median": "8600",
+        "mean": "10400"
+      },
+      "total": {
+        "individuals": "2430",
+        "median": "15500",
+        "mean": "20300"
+      },
+      "employment": {
+        "individuals": "1900",
+        "median": "15000",
+        "mean": "18700"
+      },
+      "investment": {
+        "individuals": "524",
+        "median": "132",
+        "mean": "2130"
+      }
+    },
+    "London": {
+      "self_employed": {
+        "individuals": "479",
+        "median": "10900",
+        "mean": "26200"
+      },
+      "tax": {
+        "individuals": "3740",
+        "median": "2660",
+        "mean": "6380"
+      },
+      "pension": {
+        "individuals": "619",
+        "median": "8710",
+        "mean": "11700"
+      },
+      "total": {
+        "individuals": "3740",
+        "median": "19000",
+        "mean": "29900"
+      },
+      "employment": {
+        "individuals": "2990",
+        "median": "19000",
+        "mean": "27900"
+      },
+      "investment": {
+        "individuals": "619",
+        "median": "150",
+        "mean": "3240"
+      }
+    },
+    "East of England": {
+      "self_employed": {
+        "individuals": "376",
+        "median": "11300",
+        "mean": "19700"
+      },
+      "tax": {
+        "individuals": "2840",
+        "median": "2290",
+        "mean": "4500"
+      },
+      "pension": {
+        "individuals": "652",
+        "median": "8920",
+        "mean": "11200"
+      },
+      "total": {
+        "individuals": "2840",
+        "median": "17400",
+        "mean": "24400"
+      },
+      "employment": {
+        "individuals": "2160",
+        "median": "16900",
+        "mean": "22600"
+      },
+      "investment": {
+        "individuals": "652",
+        "median": "167",
+        "mean": "2760"
+      }
+    }
+  },
+  "2007": {
+    "East Midlands": {
+      "self_employed": {
+        "individuals": "252",
+        "median": "17700",
+        "mean": "258"
+      },
+      "tax": {
+        "individuals": "2240",
+        "median": "2110",
+        "mean": "3700"
+      },
+      "pension": {
+        "individuals": "463",
+        "median": "9070",
+        "mean": "10800"
+      },
+      "total": {
+        "individuals": "2240",
+        "median": "16600",
+        "mean": "22100"
+      },
+      "employment": {
+        "individuals": "1720",
+        "median": "16000",
+        "mean": "20100"
+      },
+      "investment": {
+        "individuals": "463",
+        "median": "179",
+        "mean": "2510"
+      }
+    },
+    "West Midlands": {
+      "self_employed": {
+        "individuals": "303",
+        "median": "10000",
+        "mean": "17700"
+      },
+      "tax": {
+        "individuals": "2640",
+        "median": "2080",
+        "mean": "3620"
+      },
+      "pension": {
+        "individuals": "535",
+        "median": "8910",
+        "mean": "10800"
+      },
+      "total": {
+        "individuals": "2640",
+        "median": "16400",
+        "mean": "21700"
+      },
+      "employment": {
+        "individuals": "2080",
+        "median": "16200",
+        "mean": "20000"
+      },
+      "investment": {
+        "individuals": "535",
+        "median": "174",
+        "mean": "2370"
+      }
+    },
+    "South West": {
+      "self_employed": {
+        "individuals": "397",
+        "median": "9710",
+        "mean": "16700"
+      },
+      "tax": {
+        "individuals": "2710",
+        "median": "2060",
+        "mean": "3730"
+      },
+      "pension": {
+        "individuals": "669",
+        "median": "9340",
+        "mean": "11700"
+      },
+      "total": {
+        "individuals": "2710",
+        "median": "16500",
+        "mean": "22200"
+      },
+      "employment": {
+        "individuals": "1990",
+        "median": "15800",
+        "mean": "20100"
+      },
+      "investment": {
+        "individuals": "669",
+        "median": "218",
+        "mean": "2960"
+      }
+    },
+    "North East": {
+      "self_employed": {
+        "individuals": "110",
+        "median": "9150",
+        "mean": "16800"
+      },
+      "tax": {
+        "individuals": "1250",
+        "median": "1910",
+        "mean": "3200"
+      },
+      "pension": {
+        "individuals": "250",
+        "median": "9350",
+        "mean": "10800"
+      },
+      "total": {
+        "individuals": "1250",
+        "median": "15500",
+        "mean": "20200"
+      },
+      "employment": {
+        "individuals": "998",
+        "median": "15500",
+        "mean": "19100"
+      },
+      "investment": {
+        "individuals": "250",
+        "median": "133",
+        "mean": "1700"
+      }
+    },
+    "South East": {
+      "self_employed": {
+        "individuals": "594",
+        "median": "11000",
+        "mean": "21600"
+      },
+      "tax": {
+        "individuals": "4500",
+        "median": "2590",
+        "mean": "5560"
+      },
+      "pension": {
+        "individuals": "1030",
+        "median": "9960",
+        "mean": "13200"
+      },
+      "total": {
+        "individuals": "4500",
+        "median": "19000",
+        "mean": "28100"
+      },
+      "employment": {
+        "individuals": "3380",
+        "median": "18500",
+        "mean": "26100"
+      },
+      "investment": {
+        "individuals": "1030",
+        "median": "233",
+        "mean": "3590"
+      }
+    },
+    "North West": {
+      "self_employed": {
+        "individuals": "360",
+        "median": "9640",
+        "mean": "18300"
+      },
+      "tax": {
+        "individuals": "3360",
+        "median": "2030",
+        "mean": "3610"
+      },
+      "pension": {
+        "individuals": "715",
+        "median": "9080",
+        "mean": "10900"
+      },
+      "total": {
+        "individuals": "3360",
+        "median": "16100",
+        "mean": "21700"
+      },
+      "employment": {
+        "individuals": "2630",
+        "median": "15900",
+        "mean": "20100"
+      },
+      "investment": {
+        "individuals": "715",
+        "median": "170",
+        "mean": "2430"
+      }
+    },
+    "Yorkshire and the Humber": {
+      "self_employed": {
+        "individuals": "286",
+        "median": "9590",
+        "mean": "17600"
+      },
+      "tax": {
+        "individuals": "2500",
+        "median": "2040",
+        "mean": "3540"
+      },
+      "pension": {
+        "individuals": "509",
+        "median": "9220",
+        "mean": "11000"
+      },
+      "total": {
+        "individuals": "2500",
+        "median": "16200",
+        "mean": "21400"
+      },
+      "employment": {
+        "individuals": "1950",
+        "median": "16000",
+        "mean": "19800"
+      },
+      "investment": {
+        "individuals": "509",
+        "median": "171",
+        "mean": "2430"
+      }
+    },
+    "London": {
+      "self_employed": {
+        "individuals": "515",
+        "median": "10800",
+        "mean": "28600"
+      },
+      "tax": {
+        "individuals": "3790",
+        "median": "2920",
+        "mean": "7180"
+      },
+      "pension": {
+        "individuals": "600",
+        "median": "9360",
+        "mean": "12600"
+      },
+      "total": {
+        "individuals": "3790",
+        "median": "20300",
+        "mean": "32800"
+      },
+      "employment": {
+        "individuals": "3020",
+        "median": "20500",
+        "mean": "30300"
+      },
+      "investment": {
+        "individuals": "600",
+        "median": "206",
+        "mean": "3940"
+      }
+    },
+    "East of England": {
+      "self_employed": {
+        "individuals": "401",
+        "median": "11200",
+        "mean": "20800"
+      },
+      "tax": {
+        "individuals": "2980",
+        "median": "2380",
+        "mean": "4860"
+      },
+      "pension": {
+        "individuals": "658",
+        "median": "9600",
+        "mean": "12000"
+      },
+      "total": {
+        "individuals": "2980",
+        "median": "18000",
+        "mean": "25800"
+      },
+      "employment": {
+        "individuals": "2260",
+        "median": "17600",
+        "mean": "23800"
+      },
+      "investment": {
+        "individuals": "658",
+        "median": "207",
+        "mean": "3180"
+      }
+    }
+  },
+  "2008": {
+    "East Midlands": {
+      "self_employed": {
+        "individuals": "251",
+        "median": "18700",
+        "mean": "257"
+      },
+      "tax": {
+        "individuals": "2300",
+        "median": "2190",
+        "mean": "3860"
+      },
+      "pension": {
+        "individuals": "515",
+        "median": "9380",
+        "mean": "11200"
+      },
+      "total": {
+        "individuals": "2300",
+        "median": "17000",
+        "mean": "22900"
+      },
+      "employment": {
+        "individuals": "1800",
+        "median": "16600",
+        "mean": "20800"
+      },
+      "investment": {
+        "individuals": "515",
+        "median": "88",
+        "mean": "2200"
+      }
+    },
+    "West Midlands": {
+      "self_employed": {
+        "individuals": "304",
+        "median": "10200",
+        "mean": "17900"
+      },
+      "tax": {
+        "individuals": "2710",
+        "median": "2190",
+        "mean": "3790"
+      },
+      "pension": {
+        "individuals": "593",
+        "median": "9260",
+        "mean": "11200"
+      },
+      "total": {
+        "individuals": "2710",
+        "median": "17000",
+        "mean": "22600"
+      },
+      "employment": {
+        "individuals": "2140",
+        "median": "16600",
+        "mean": "20600"
+      },
+      "investment": {
+        "individuals": "593",
+        "median": "89",
+        "mean": "2200"
+      }
+    },
+    "South West": {
+      "self_employed": {
+        "individuals": "398",
+        "median": "9590",
+        "mean": "17300"
+      },
+      "tax": {
+        "individuals": "2760",
+        "median": "2190",
+        "mean": "3930"
+      },
+      "pension": {
+        "individuals": "718",
+        "median": "9630",
+        "mean": "12000"
+      },
+      "total": {
+        "individuals": "2760",
+        "median": "17200",
+        "mean": "23200"
+      },
+      "employment": {
+        "individuals": "2040",
+        "median": "16200",
+        "mean": "20700"
+      },
+      "investment": {
+        "individuals": "718",
+        "median": "100",
+        "mean": "2720"
+      }
+    },
+    "North East": {
+      "self_employed": {
+        "individuals": "111",
+        "median": "8930",
+        "mean": "17000"
+      },
+      "tax": {
+        "individuals": "1330",
+        "median": "2050",
+        "mean": "3350"
+      },
+      "pension": {
+        "individuals": "297",
+        "median": "9530",
+        "mean": "10900"
+      },
+      "total": {
+        "individuals": "1330",
+        "median": "16300",
+        "mean": "21000"
+      },
+      "employment": {
+        "individuals": "1060",
+        "median": "16200",
+        "mean": "19800"
+      },
+      "investment": {
+        "individuals": "297",
+        "median": "79",
+        "mean": "1530"
+      }
+    },
+    "South East": {
+      "self_employed": {
+        "individuals": "607",
+        "median": "11000",
+        "mean": "22900"
+      },
+      "tax": {
+        "individuals": "4580",
+        "median": "2700",
+        "mean": "5890"
+      },
+      "pension": {
+        "individuals": "1100",
+        "median": "10200",
+        "mean": "13500"
+      },
+      "total": {
+        "individuals": "4580",
+        "median": "19600",
+        "mean": "29500"
+      },
+      "employment": {
+        "individuals": "3440",
+        "median": "18900",
+        "mean": "27000"
+      },
+      "investment": {
+        "individuals": "1100",
+        "median": "102",
+        "mean": "3320"
+      }
+    },
+    "North West": {
+      "self_employed": {
+        "individuals": "369",
+        "median": "9620",
+        "mean": "18300"
+      },
+      "tax": {
+        "individuals": "3450",
+        "median": "2100",
+        "mean": "3720"
+      },
+      "pension": {
+        "individuals": "786",
+        "median": "9410",
+        "mean": "11300"
+      },
+      "total": {
+        "individuals": "3450",
+        "median": "16600",
+        "mean": "22300"
+      },
+      "employment": {
+        "individuals": "2700",
+        "median": "16200",
+        "mean": "20500"
+      },
+      "investment": {
+        "individuals": "786",
+        "median": "87",
+        "mean": "2040"
+      }
+    },
+    "Yorkshire and the Humber": {
+      "self_employed": {
+        "individuals": "289",
+        "median": "9650",
+        "mean": "18200"
+      },
+      "tax": {
+        "individuals": "2590",
+        "median": "2110",
+        "mean": "3660"
+      },
+      "pension": {
+        "individuals": "564",
+        "median": "9500",
+        "mean": "11400"
+      },
+      "total": {
+        "individuals": "2590",
+        "median": "16600",
+        "mean": "22100"
+      },
+      "employment": {
+        "individuals": "2030",
+        "median": "16200",
+        "mean": "20200"
+      },
+      "investment": {
+        "individuals": "564",
+        "median": "87",
+        "mean": "2030"
+      }
+    },
+    "London": {
+      "self_employed": {
+        "individuals": "530",
+        "median": "10900",
+        "mean": "30900"
+      },
+      "tax": {
+        "individuals": "3890",
+        "median": "3020",
+        "mean": "7740"
+      },
+      "pension": {
+        "individuals": "637",
+        "median": "9740",
+        "mean": "12800"
+      },
+      "total": {
+        "individuals": "3890",
+        "median": "20800",
+        "mean": "34700"
+      },
+      "employment": {
+        "individuals": "3110",
+        "median": "20800",
+        "mean": "31800"
+      },
+      "investment": {
+        "individuals": "637",
+        "median": "97",
+        "mean": "3510"
+      }
+    },
+    "East of England": {
+      "self_employed": {
+        "individuals": "411",
+        "median": "11400",
+        "mean": "21800"
+      },
+      "tax": {
+        "individuals": "3010",
+        "median": "2510",
+        "mean": "5120"
+      },
+      "pension": {
+        "individuals": "704",
+        "median": "9860",
+        "mean": "12300"
+      },
+      "total": {
+        "individuals": "3010",
+        "median": "18700",
+        "mean": "27000"
+      },
+      "employment": {
+        "individuals": "2280",
+        "median": "18000",
+        "mean": "24600"
+      },
+      "investment": {
+        "individuals": "704",
+        "median": "97",
+        "mean": "2870"
+      }
+    }
+  },
+  "2009": {
+    "East Midlands": {
+      "self_employed": {
+        "individuals": "245",
+        "median": "18600",
+        "mean": "252"
+      },
+      "tax": {
+        "individuals": "2340",
+        "median": "2300",
+        "mean": "4070"
+      },
+      "pension": {
+        "individuals": "563",
+        "median": "9460",
+        "mean": "11100"
+      },
+      "total": {
+        "individuals": "2340",
+        "median": "17900",
+        "mean": "23900"
+      },
+      "employment": {
+        "individuals": "1860",
+        "median": "17000",
+        "mean": "21400"
+      },
+      "investment": {
+        "individuals": "563",
+        "median": "75",
+        "mean": "2570"
+      }
+    },
+    "West Midlands": {
+      "self_employed": {
+        "individuals": "299",
+        "median": "9970",
+        "mean": "17900"
+      },
+      "tax": {
+        "individuals": "2750",
+        "median": "2260",
+        "mean": "3940"
+      },
+      "pension": {
+        "individuals": "636",
+        "median": "9330",
+        "mean": "11100"
+      },
+      "total": {
+        "individuals": "2750",
+        "median": "17600",
+        "mean": "23400"
+      },
+      "employment": {
+        "individuals": "2210",
+        "median": "16900",
+        "mean": "21000"
+      },
+      "investment": {
+        "individuals": "636",
+        "median": "74",
+        "mean": "2450"
+      }
+    },
+    "South West": {
+      "self_employed": {
+        "individuals": "398",
+        "median": "9980",
+        "mean": "17700"
+      },
+      "tax": {
+        "individuals": "2860",
+        "median": "2310",
+        "mean": "4150"
+      },
+      "pension": {
+        "individuals": "780",
+        "median": "9670",
+        "mean": "12000"
+      },
+      "total": {
+        "individuals": "2860",
+        "median": "18000",
+        "mean": "24300"
+      },
+      "employment": {
+        "individuals": "2150",
+        "median": "16800",
+        "mean": "21300"
+      },
+      "investment": {
+        "individuals": "780",
+        "median": "92",
+        "mean": "3040"
+      }
+    },
+    "North East": {
+      "self_employed": {
+        "individuals": "110",
+        "median": "9380",
+        "mean": "17100"
+      },
+      "tax": {
+        "individuals": "1320",
+        "median": "2160",
+        "mean": "3580"
+      },
+      "pension": {
+        "individuals": "321",
+        "median": "9360",
+        "mean": "10700"
+      },
+      "total": {
+        "individuals": "1320",
+        "median": "17100",
+        "mean": "22100"
+      },
+      "employment": {
+        "individuals": "1070",
+        "median": "16700",
+        "mean": "20400"
+      },
+      "investment": {
+        "individuals": "321",
+        "median": "59",
+        "mean": "1760"
+      }
+    },
+    "South East": {
+      "self_employed": {
+        "individuals": "602",
+        "median": "11200",
+        "mean": "23400"
+      },
+      "tax": {
+        "individuals": "4660",
+        "median": "2810",
+        "mean": "6210"
+      },
+      "pension": {
+        "individuals": "1170",
+        "median": "10400",
+        "mean": "13500"
+      },
+      "total": {
+        "individuals": "4660",
+        "median": "20400",
+        "mean": "30900"
+      },
+      "employment": {
+        "individuals": "3560",
+        "median": "19200",
+        "mean": "27600"
+      },
+      "investment": {
+        "individuals": "1170",
+        "median": "95",
+        "mean": "3850"
+      }
+    },
+    "North West": {
+      "self_employed": {
+        "individuals": "365",
+        "median": "9560",
+        "mean": "18300"
+      },
+      "tax": {
+        "individuals": "3490",
+        "median": "2210",
+        "mean": "3900"
+      },
+      "pension": {
+        "individuals": "850",
+        "median": "9600",
+        "mean": "11300"
+      },
+      "total": {
+        "individuals": "3490",
+        "median": "17400",
+        "mean": "23300"
+      },
+      "employment": {
+        "individuals": "2760",
+        "median": "16700",
+        "mean": "21000"
+      },
+      "investment": {
+        "individuals": "850",
+        "median": "71",
+        "mean": "2400"
+      }
+    },
+    "Yorkshire and the Humber": {
+      "self_employed": {
+        "individuals": "289",
+        "median": "9770",
+        "mean": "18300"
+      },
+      "tax": {
+        "individuals": "2580",
+        "median": "2200",
+        "mean": "3860"
+      },
+      "pension": {
+        "individuals": "607",
+        "median": "9550",
+        "mean": "11300"
+      },
+      "total": {
+        "individuals": "2580",
+        "median": "17400",
+        "mean": "23100"
+      },
+      "employment": {
+        "individuals": "2060",
+        "median": "16600",
+        "mean": "20600"
+      },
+      "investment": {
+        "individuals": "607",
+        "median": "69",
+        "mean": "2360"
+      }
+    },
+    "London": {
+      "self_employed": {
+        "individuals": "556",
+        "median": "11000",
+        "mean": "34400"
+      },
+      "tax": {
+        "individuals": "4030",
+        "median": "3140",
+        "mean": "8550"
+      },
+      "pension": {
+        "individuals": "661",
+        "median": "10100",
+        "mean": "13300"
+      },
+      "total": {
+        "individuals": "4030",
+        "median": "21800",
+        "mean": "37400"
+      },
+      "employment": {
+        "individuals": "3240",
+        "median": "21600",
+        "mean": "33600"
+      },
+      "investment": {
+        "individuals": "661",
+        "median": "82",
+        "mean": "4260"
+      }
+    },
+    "East of England": {
+      "self_employed": {
+        "individuals": "407",
+        "median": "11700",
+        "mean": "22700"
+      },
+      "tax": {
+        "individuals": "3070",
+        "median": "2610",
+        "mean": "5390"
+      },
+      "pension": {
+        "individuals": "758",
+        "median": "10000",
+        "mean": "12400"
+      },
+      "total": {
+        "individuals": "3070",
+        "median": "19400",
+        "mean": "28200"
+      },
+      "employment": {
+        "individuals": "2370",
+        "median": "18400",
+        "mean": "25100"
+      },
+      "investment": {
+        "individuals": "758",
+        "median": "85",
+        "mean": "3280"
+      }
+    }
+  },
+  "2010": {
+    "East Midlands": {
+      "self_employed": {
+        "individuals": "212",
+        "median": "17800",
+        "mean": "218"
+      },
+      "tax": {
+        "individuals": "2200",
+        "median": "2220",
+        "mean": "3990"
+      },
+      "pension": {
+        "individuals": "564",
+        "median": "11200",
+        "mean": "12600"
+      },
+      "total": {
+        "individuals": "2200",
+        "median": "18500",
+        "mean": "25100"
+      },
+      "employment": {
+        "individuals": "1730",
+        "median": "17900",
+        "mean": "22900"
+      },
+      "investment": {
+        "individuals": "564",
+        "median": "43",
+        "mean": "2460"
+      }
+    },
+    "West Midlands": {
+      "self_employed": {
+        "individuals": "258",
+        "median": "9950",
+        "mean": "17500"
+      },
+      "tax": {
+        "individuals": "2530",
+        "median": "2230",
+        "mean": "3900"
+      },
+      "pension": {
+        "individuals": "654",
+        "median": "10900",
+        "mean": "12500"
+      },
+      "total": {
+        "individuals": "2530",
+        "median": "18600",
+        "mean": "24800"
+      },
+      "employment": {
+        "individuals": "1990",
+        "median": "18000",
+        "mean": "22500"
+      },
+      "investment": {
+        "individuals": "654",
+        "median": "42",
+        "mean": "2450"
+      }
+    },
+    "South West": {
+      "self_employed": {
+        "individuals": "350",
+        "median": "9980",
+        "mean": "17800"
+      },
+      "tax": {
+        "individuals": "2690",
+        "median": "2270",
+        "mean": "4120"
+      },
+      "pension": {
+        "individuals": "792",
+        "median": "11600",
+        "mean": "13700"
+      },
+      "total": {
+        "individuals": "2690",
+        "median": "19000",
+        "mean": "25700"
+      },
+      "employment": {
+        "individuals": "1990",
+        "median": "17800",
+        "mean": "22700"
+      },
+      "investment": {
+        "individuals": "792",
+        "median": "46",
+        "mean": "3080"
+      }
+    },
+    "North East": {
+      "self_employed": {
+        "individuals": "93",
+        "median": "9200",
+        "mean": "16500"
+      },
+      "tax": {
+        "individuals": "1190",
+        "median": "2220",
+        "mean": "3650"
+      },
+      "pension": {
+        "individuals": "300",
+        "median": "11100",
+        "mean": "12100"
+      },
+      "total": {
+        "individuals": "1190",
+        "median": "18400",
+        "mean": "23900"
+      },
+      "employment": {
+        "individuals": "953",
+        "median": "18200",
+        "mean": "22400"
+      },
+      "investment": {
+        "individuals": "300",
+        "median": "40",
+        "mean": "1820"
+      }
+    },
+    "South East": {
+      "self_employed": {
+        "individuals": "542",
+        "median": "11000",
+        "mean": "23300"
+      },
+      "tax": {
+        "individuals": "4430",
+        "median": "2760",
+        "mean": "6240"
+      },
+      "pension": {
+        "individuals": "1170",
+        "median": "12100",
+        "mean": "15200"
+      },
+      "total": {
+        "individuals": "4430",
+        "median": "21600",
+        "mean": "32600"
+      },
+      "employment": {
+        "individuals": "3360",
+        "median": "20500",
+        "mean": "29800"
+      },
+      "investment": {
+        "individuals": "1170",
+        "median": "46",
+        "mean": "3790"
+      }
+    },
+    "North West": {
+      "self_employed": {
+        "individuals": "306",
+        "median": "9330",
+        "mean": "18100"
+      },
+      "tax": {
+        "individuals": "3300",
+        "median": "2210",
+        "mean": "3930"
+      },
+      "pension": {
+        "individuals": "847",
+        "median": "11300",
+        "mean": "12800"
+      },
+      "total": {
+        "individuals": "3300",
+        "median": "18500",
+        "mean": "24900"
+      },
+      "employment": {
+        "individuals": "2600",
+        "median": "17900",
+        "mean": "22700"
+      },
+      "investment": {
+        "individuals": "847",
+        "median": "42",
+        "mean": "2360"
+      }
+    },
+    "Yorkshire and the Humber": {
+      "self_employed": {
+        "individuals": "245",
+        "median": "9660",
+        "mean": "18300"
+      },
+      "tax": {
+        "individuals": "2410",
+        "median": "2150",
+        "mean": "3900"
+      },
+      "pension": {
+        "individuals": "604",
+        "median": "11100",
+        "mean": "12700"
+      },
+      "total": {
+        "individuals": "2410",
+        "median": "18200",
+        "mean": "24600"
+      },
+      "employment": {
+        "individuals": "1890",
+        "median": "17700",
+        "mean": "22400"
+      },
+      "investment": {
+        "individuals": "604",
+        "median": "42",
+        "mean": "2350"
+      }
+    },
+    "London": {
+      "self_employed": {
+        "individuals": "510",
+        "median": "11400",
+        "mean": "35100"
+      },
+      "tax": {
+        "individuals": "3840",
+        "median": "3160",
+        "mean": "8660"
+      },
+      "pension": {
+        "individuals": "643",
+        "median": "11800",
+        "mean": "15000"
+      },
+      "total": {
+        "individuals": "3840",
+        "median": "23400",
+        "mean": "39800"
+      },
+      "employment": {
+        "individuals": "3090",
+        "median": "23300",
+        "mean": "35900"
+      },
+      "investment": {
+        "individuals": "643",
+        "median": "45",
+        "mean": "4670"
+      }
+    },
+    "East of England": {
+      "self_employed": {
+        "individuals": "364",
+        "median": "11400",
+        "mean": "21700"
+      },
+      "tax": {
+        "individuals": "2940",
+        "median": "2560",
+        "mean": "5360"
+      },
+      "pension": {
+        "individuals": "761",
+        "median": "11800",
+        "mean": "14000"
+      },
+      "total": {
+        "individuals": "2940",
+        "median": "20400",
+        "mean": "29700"
+      },
+      "employment": {
+        "individuals": "2230",
+        "median": "19700",
+        "mean": "27200"
+      },
+      "investment": {
+        "individuals": "761",
+        "median": "45",
+        "mean": "3270"
+      }
+    }
+  }
+}

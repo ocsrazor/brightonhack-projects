@@ -1,15 +1,30 @@
 <html>
   <head>
-    <!--
     <script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js" charset="utf-8"></script>
-      
-    -->
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <style type="text/css">
+      body { font-family: Verdana; color: #666 }
+      div { padding: 5px; }
+    </style>
   </head>
   <body>
+    <div id="mapdiv" style="width: 400px; height: 600px; border: 2px dotted #ccc; float: left"></div>
+    <div>
+      Year
+      <select id="year">
+        <option>2005</option>
+        <option>2006</option>
+        <option>2007</option>
+        <option>2008</option>
+        <option>2009</option>
+        <option>2010</option>
+        <option>2011</option>
+      </select>
+    </div>
+    
     <script type="text/javascript">
 
-        var scale = d3.scale.linear().domain([0, 10]).range(['#fc0', '#f00']);
+        var scale = d3.scale.linear().domain([19000, 40000]).range(['#fc0', '#f00']);
 
         //Width and height
         var w = 400;
@@ -19,7 +34,7 @@
         // var projection = d3.geo.mercator()
         //                  .translate([w/2, h/2])
         //                  .scale([800]);
-                         
+
        var projection = d3.geo.mercator()
            .scale(2000)
            .translate([300,2600])
@@ -30,36 +45,74 @@
                     .projection(projection);
 
         //Create SVG element
-        var svg = d3.select("body")
+        var svg = d3.select("#mapdiv")
                     .append("svg")
                     .attr("width", w)
                     .attr("height", h);
-        
+
         var map;
-        
-        //Load in GeoJSON data
-        d3.json("regions.json", function(json) {
+        var all_data;
+
+        // LOAD IN MONEY DATA
+        d3.json("region_data.json", function(d){
+
+          all_data = d;
+
+          //Load in GeoJSON data
+          d3.json("regions.json", function(json) {
 
             //Bind data and create one path per GeoJSON feature
-            map = svg.selectAll("path")
+             map = svg.selectAll("path")
                .data(json.features)
                .enter()
                .append("path")
                .attr("d", function(d){
-                 console.log(d);
                  return path(d.geometry)
                })
-               .style('fill', '#ccc')
-               .transition()
-               .duration(1200)
-               .style("fill", function(d, i) { 
-                 return scale(d.properties.money);
-               });
+               .style('fill', '#ccc');
+              colourRegions(2005, 'mean');
+          });
         });
 
+        function colourRegions(year, field) {
+          var data = all_data[year];
+          var min=99999999999999999, max=0;
+          var keys = Object.keys(data);
+          for (i=0; i<keys.length; i++) {
+            var n = keys[i];
+            var v = data[n]['total'][field];
+            if (v && v < min) min = v;
+            if (v && v > max) max = v;
+          }
+          scale = d3.scale.linear().domain([min, 40000]).range(['#FFEE00', '#FF0000']);
+          var svg = d3.select('svg');
+          svg.selectAll('path')
+            .transition()
+            .duration(1200)
+            .style("fill", function(d, i) {
+              var n = d.properties.name;
+              // console.log(n);
+              if (data[n]) {
+                // console.log(data[n]);
+                var v = data[n]['total'][field];
+                return scale(v);
+              } else {
+                // console.log('  not found');
+                return '#ccc';
+              }
+          });
+        }
+        
+        
+        $(function() {
+          $('#year').change(function() {
+            var y = $(this).val();
+            colourRegions(y, 'mean');
+          });
+        });
       </script>
+
     </body>
   </body>
 </html>
-  
-    
+
