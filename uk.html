@@ -1,117 +1,15 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>Non-Contiguous Cartogram</title>
-<style>
+<head>
+<title>Habitat Loss</title>
 
-.land {
-  fill: #fff;
-  stroke: #ccc;
-}
+  <link charset='utf-8' href='css/habitat.css' media='screen' rel='stylesheet' type='text/css' />
 
-.bgCounty {
-  fill: #000;
-  stroke: #fff;
-}
-
-.county {
-  fill: #ccc;
-  /*stroke: #666;*/
-}
-
-</style>
+</head>
 <body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-<script>
-
-var path = d3.geo.path();
-
-var projection = d3.geo.albers()
-  .center([0, 55.4])
-  .rotate([4.4, 0])
-  .parallels([50, 60])
-  .scale([10000])
-  .translate([250, 250]);
-
-  path = d3.geo.path()
-    .projection(projection);
-
-
-var svg = d3.select("body").append("svg")
-    .attr("width", 960)
-    .attr("height", 5000);
-
-var uk;
-
-var quarters = ["2011 Q4", "2011 Q3", "2011 Q4", "2012 Q1", "2012 Q2", "2012 Q3", "2012 Q4", "2013 Q1"];
-
-d3.json("/uk2.json", function(error, data) {
-
-    // svg.append("path")
-    //   .datum(uk[0].geo_json)
-    //   .attr("class", "land")
-    //   .attr("d", path);
-
-    uk = data;
-
-    drawMap(0);
-});
-
-function drawMap(quarter){
-  drawCounties("bgCounty", false);
-  drawCounties("county", true, quarter);
-}
-
-function drawCounties(className, scaleCounties, quarter){
-  svg.selectAll("." + className)
-        .data(uk)
-        .enter()
-        .append("path")
-        .classed(className, true)
-        .attr("d", function(d){
-          return path(d.geo_json)
-        })
-        // .on("click", function(d){
-        //   alert(d["2011 Q2"]);
-        // })
-  
-      if (scaleCounties){
-
-        svg.selectAll("." + className).attr("transform", function(d) {
-          var centroid = path.centroid(d.geo_json),
-              x = centroid[0],
-              y = centroid[1];
-
-          return "translate(" + x + "," + y + ")"
-              + "scale(" + (d[quarters[quarter]] || 0) + ")"
-              + "translate(" + -x + "," + -y + ")";
-        })
-      }
-      
-}
-  // svg.append("path")
-  //     .datum(topojson.feature(uk, uk.objects.land))
-  //     .attr("class", "land")
-  //     .attr("d", path);
-/*
-  svg.selectAll(".state")
-      .data(topojson.feature(us, us.objects.states).features)
-    .enter().append("path")
-      .attr("class", "state")
-      .attr("d", path)
-      .attr("transform", function(d) {
-        var centroid = path.centroid(d),
-            x = centroid[0],
-            y = centroid[1];
-        return "translate(" + x + "," + y + ")"
-            + "scale(" + Math.sqrt(valueById[d.id] * 5 || 0) + ")"
-            + "translate(" + -x + "," + -y + ")";
-      })
-      .style("stroke-width", function(d) {
-        return 1 / Math.sqrt(valueById[d.id] * 5 || 1);
-      });
-*/
-//}
-//);
-
-</script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script type"text/javascript" src="js/underscore-min.js"></script>
+  <script type"text/javascript" src="js/habitat.js"></script>
+</body>
+</html>
