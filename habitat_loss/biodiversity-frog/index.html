@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Jumping frog: Pablo</title>
+        <!-- Original image: http://upload.wikimedia.org/wikipedia/commons/d/d7/Frog.svg -->
+    </head>
+    <body>
+        <!-- HTML container for the SVG root node -->
+        <div id="stage"></div>
+
+        <!-- scripts -->
+        <script src="pablo.js"></script>
+        <script src="frog.js"></script>
+
+        <script>
+        var width = window.innerWidth,
+            height = window.innerHeight,
+            svg = Pablo('#stage').svg({
+                width: width,
+                height: height
+            }),
+            count = 1,
+            interval;
+        
+        svg.frog();
+
+        interval = window.setInterval(function(){
+            count ++;
+            svg.frog();
+
+            if (count === 3){
+                window.clearTimeout(interval);
+            }
+        }, 300);
+        </script>
+    </body>
+</html>

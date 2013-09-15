@@ -1,0 +1,15 @@
+/*Habitat Styles */
+.land {
+  fill: #fff;
+  stroke: #ccc;
+}
+
+.bgCounty {
+  fill: #000;
+  stroke: #fff;
+}
+
+.county {
+  fill: #ccc;
+  /*stroke: #666;*/
+}
