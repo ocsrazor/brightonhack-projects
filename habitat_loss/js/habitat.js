@@ -37,14 +37,13 @@ initData: function() {
 
     // Convert data into array
     this.ukHomeless = _.map(this.data, function(countyData, county) {
-    countyData.county = countyData.county.replace("UA", "");
-    countyData.county = countyData.county.replace(/\(.*\)/,"");
-    countyData.county = countyData.county.trim();
+      countyData.county = countyData.county.replace("UA", "");
+      countyData.county = countyData.county.replace(/\(.*\)/,"");
+      countyData.county = countyData.county.trim();
+      return countyData;
+    });
 
     quarters = ["2011 Q4", "2011 Q3", "2011 Q4", "2012 Q1", "2012 Q2", "2012 Q3", "2012 Q4", "2013 Q1"];
-
-    return countyData;
-    });
 
   },
 
@@ -71,14 +70,15 @@ initData: function() {
 
 make: function() {
     var that = this;
-
+    console.log( this.data); // <-- this is "County name" : "homeless data..." (ie: with no geoJson data)
     this.g
       .selectAll('.county')
-      .data(this.data)
+      .data(this.data) // <-- this is blowing my mind... how is this passing geoJson data to all the path elements?  
       .enter()
       .append('path')
       .classed('county', true)
       .attr('d', function(d) {
+        console.log(d);
         return path(d.geo_json);
       })
       .style('fill', function(d) {
@@ -123,7 +123,10 @@ drawCounties: function (className, scaleCounties, quarter){
 d3.json('data/HouseholdHomeless2.json', function(err, jsonHomeless) {
   chart.data = jsonHomeless;
 
+  // original: 
   d3.json('data/uk2.json', function(err, jsonGeoData) {
+  // want to read in this data:
+  //d3.json('data/countyPopAndGeo.json', function(err, jsonGeoData) { 
     chart.geodata = jsonGeoData;
 
     chart.initData();
