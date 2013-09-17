@@ -6,13 +6,13 @@ var chart = {
         height: 1000,
     },
 
-    data: null,         //TODO: delete after testing
-    geodata: null,      //TODO: delete after testing
+    data: null, //TODO: delete after testing
+    geodata: null, //TODO: delete after testing
     popAndGeoData: null,
-    ukGeoLookup: null,  //TODO: delete after testing
+    ukGeoLookup: null, //TODO: delete after testing
     ukPopAndGeoLookup: [],
-    ukHomeless: null,   //TODO: delete after testing
-    quarters: null,
+    ukHomeless: null, //TODO: delete after testing
+    quarters2: [],
     projection: null,
     path: null,
     extent: null,
@@ -25,13 +25,15 @@ var chart = {
     },
 
     drawMap: function (quarter) {
-        this.drawCounties("bgCounty", false);
-        this.drawCounties("county", true, quarter);
+        this.drawCounties("bgcounty", false); // draw actual geoData
+        this.drawCounties("county", true, quarter); // init draw of homeless data
+        //this.drawHomelessData(0...n); // subseuent data updatees - draw geoData scaled by homelessness
     },
 
     initData: function () {
 
         var that = this;
+        var ranOnce = false;
 
         //TODO: delete after testing
         // Make lookup hash for geojson data
@@ -41,7 +43,7 @@ var chart = {
         //     this.ukGeoLookup = ukGeoLookup;
         //     //console.log(this.ukGeoLookup);
         // });
-    
+
         //TODO: delete after testing
         // // Convert data into array
         // this.ukHomeless = _.map(this.data, function (countyData, county) {
@@ -52,22 +54,37 @@ var chart = {
         // });
 
         // now have homeless and geoJson data in popAndGeoData - parse this into list of objects
-        _.each(this.popAndGeoData, function (v){
+        _.each(this.popAndGeoData, function (v) {
+            var index = 0;
             var ukPopAndGeoLookup = {};
+            var quarterLookup = {};
             ukPopAndGeoLookup["county"] = v.county;
 
             var keys = _.keys(v);
-            _.each(keys, function(v2){ // for all keys containing "Q", ie: quarterly data
-                if(v2.indexOf("Q") != -1){
-                ukPopAndGeoLookup[v2] = v[v2]; // ...create new entry with original key and value
+            
+            _.each(keys, function (v2) { // for all keys containing "Q", ie: quarterly data
+                if (v2.indexOf("Q") != -1) {
+                    
+                    if(!ranOnce){  // one time only execution: // create lookup array: 0...n : "2011 Q1", ... n
+                        ukPopAndGeoLookup[v2] = v[v2]; // ...create new entry with original key and value
+                        quarterLookup[index++] = v2;
+                    }
                 }
+
             });
             ukPopAndGeoLookup["geo_json"] = v.geo_json;
 
             //add all the objects to the member data array 
             that.ukPopAndGeoLookup.push(ukPopAndGeoLookup);
+            if(!ranOnce){
+                that.quarters2.push(quarterLookup);
+                ranOnce = true;
+            }
+
+            
         });
-       // console.log(this.ukPopAndGeoLookup);
+        //console.log(this.ukPopAndGeoLookup);
+        //console.log(that.quarters2);
 
         quarters = ["2011 Q4", "2011 Q3", "2011 Q4", "2012 Q1", "2012 Q2", "2012 Q3", "2012 Q4", "2013 Q1"];
 
@@ -120,8 +137,10 @@ var chart = {
 
 
     drawCounties: function (className, scaleCounties, quarter) {
+        
         this.g.selectAll("." + className)
-            .data(chart.geodata)
+        //.data(chart.geodata) //TODO: delete after testing
+        .data(chart.ukPopAndGeoLookup)
             .enter()
             .append("path")
             .classed(className, true)
@@ -134,16 +153,40 @@ var chart = {
 
         if (scaleCounties) {
 
-            this.g.selectAll("." + className).attr("transform", function (d) {
-                var centroid = path.centroid(d.geo_json),
-                    x = centroid[0],
-                    y = centroid[1];
+            this.drawHomelessData(quarter);
 
-                return "translate(" + x + "," + y + ")" + "scale(" + (d[quarters[quarter]] || 0) + ")" + "translate(" + -x + "," + -y + ")";
-            })
+            //TODO: del after testing
+            // this.g.selectAll("." + className).attr("transform", function (d) {
+            //     var centroid = path.centroid(d.geo_json),
+            //         x = centroid[0],
+            //         y = centroid[1];
+
+            //     return "translate(" + x + "," + y + ")" + "scale(" + (d[quarters[quarter]] || 0) + ")" + "translate(" + -x + "," + -y + ")";
+            // })
         }
 
-    }
+    },
+
+    // call this to update data, with 0...n based index, which will map to earliest to latest date of data
+    drawHomelessData: function (quarter) {
+
+        //console.log(that.quarters2[0][quarter]); 
+        var that = this;
+        
+        this.g.selectAll("." + "county")
+        //.data(chart.geodata) //TODO: delete after testing
+        .data(chart.ukPopAndGeoLookup)
+        .attr("transform", function (d) {
+            var centroid = path.centroid(d.geo_json),
+                x = centroid[0],
+                y = centroid[1];
+
+            //TODO: delete after testing:
+            //return "translate(" + x + "," + y + ")" + "scale(" + (d[quarters[quarter]] || 0) + ")" + "translate(" + -x + "," + -y + ")";
+            return "translate(" + x + "," + y + ")" + "scale(" + (d[that.quarters2[0][quarter]] || 0) + ")" + "translate(" + -x + "," + -y + ")";
+        })
+
+    },
 
 }
 
@@ -155,7 +198,7 @@ d3.json('data/HouseholdHomeless2.json', function (err, jsonHomeless) {
     d3.json('data/uk2.json', function (err, jsonGeoData) {
         chart.geodata = jsonGeoData;
 
-        
+        // only using this data now, delete other json loads after testing.
         d3.json('data/countyPopAndGeo.json', function (err, jsonPopAndGeoData) {
             chart.popAndGeoData = jsonPopAndGeoData;
 
@@ -165,4 +208,3 @@ d3.json('data/HouseholdHomeless2.json', function (err, jsonHomeless) {
         });
     }); //TODO: delete after testing 
 }); //TODO: delete after testing
-
