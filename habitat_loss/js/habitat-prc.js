@@ -6,6 +6,7 @@ var chart = {
         height: 1000,
     },
 
+    constructed: false,
     popAndGeoData: null,
     quarters2: [],
     projection: null,
@@ -23,7 +24,6 @@ var chart = {
     drawMap: function (quarter) {
         this.drawCounties("bgcounty", false); // draw actual geoData
         this.drawCounties("county", true, quarter); // init draw of homeless data
-        //this.drawHomelessData(0...n); // subseuent data updatees - draw geoData scaled by homelessness
     },
 
     initData: function () {
@@ -33,8 +33,9 @@ var chart = {
         this.popAndGeo = _.map(this.popAndGeoData, function(v, k) {
             return v;
         });
+        console.log(this.popAndGeo);
 
-        this.quarters2 = ["2011 Q4", "2011 Q3", "2011 Q4", "2012 Q1", "2012 Q2", "2012 Q3", "2012 Q4", "2013 Q1"];
+        this.quarters2 = ["2011 Q2", "2011 Q3", "2011 Q4", "2012 Q1", "2012 Q2", "2012 Q3", "2012 Q4", "2013 Q1"];
 
     },
 
@@ -90,20 +91,17 @@ var chart = {
     // call this to update data, with 0...n based index, which will map to earliest to latest date of data
     drawHomelessData: function (quarter) {
 
-        //console.log(that.quarters2[0][quarter]); 
-        var that = this;
-        
+        var that = this; 
         this.g.selectAll("." + "county")
         .data(chart.popAndGeo)
         .attr("transform", function (d) {
             var centroid = path.centroid(d.geo_json),
                 x = centroid[0],
                 y = centroid[1];
-
             return "translate(" + x + "," + y + ")" + "scale(" + (d[that.quarters2[quarter]] || 0) + ")" + "translate(" + -x + "," + -y + ")";
         })
-
     },
+
 
 }
 
