@@ -1,27 +1,80 @@
 <html>
   <head>
+    <meta charset="utf-8">
     <script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js" charset="utf-8"></script>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <style type="text/css">
       body { font-family: Verdana; color: #666 }
       div { padding: 5px; }
     </style>
+    <style>
+    /* slider style */
+    .axis {
+      font: 10px sans-serif;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    .axis .domain {
+      fill: none;
+      stroke: #000;
+      stroke-opacity: .3;
+      stroke-width: 10px;
+      stroke-linecap: round;
+    }
+
+    .axis .halo {
+      fill: none;
+      stroke: #ddd;
+      stroke-width: 8px;
+      stroke-linecap: round;
+    }
+
+    .slider .handle {
+      fill: #fff;
+      stroke: #000;
+      stroke-opacity: .5;
+      stroke-width: 1.25px;
+      pointer-events: none;
+    }
+
+    .timescale {
+      fill: none;
+      stroke: #000;
+      stroke-opacity: .5;
+      stroke-width: 1.25px;
+      border: 1px dotted #ccc;
+    }
+
+    .timescale .time {
+      fill: #aaa;
+      opacity: 0.4;
+    }
+
+    .moneyometer {
+      fill: none;
+      stroke: #000;
+      stroke-opacity: .5;
+      stroke-width: 1px;
+      border: 1px dotted #ccc;
+    }
+
+    .moneyometer .money {
+      fill: #88cc88;
+      opacity: 0.4;
+    }
+    </style>
   </head>
   <body>
-    <div id="mapdiv" style="width: 400px; height: 600px; border: 2px dotted #ccc; float: left"></div>
-    <div>
-      Year
-      <select id="year">
-        <option>2005</option>
-        <option>2006</option>
-        <option>2007</option>
-        <option>2008</option>
-        <option>2009</option>
-        <option>2010</option>
-        <option>2011</option>
-      </select>
-    </div>
-    
+    <div id="mapdiv" style="width: 400px; height: 600px; float: left"></div>
+    <div id="moneyandpump" style ="width: 300px; height: 600px; float: left"></div>
+    <div id="timeline" style = "width: 100%; height: 50px; float: left"></div>
+    <div style="clear: both" id="leappos">0</div>
+
+    <script src="http://js.leapmotion.com/0.2.0/leap.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
     <script type="text/javascript">
 
         var scale = d3.scale.linear().domain([19000, 40000]).range(['#fc0', '#f00']);
@@ -76,6 +129,7 @@
 
         function colourRegions(year, field) {
           var data = all_data[year];
+          if (!data) return false;
           var min=99999999999999999, max=0;
           var keys = Object.keys(data);
           for (i=0; i<keys.length; i++) {
@@ -102,13 +156,177 @@
               }
           });
         }
-        
-        
+
+
         $(function() {
           $('#year').change(function() {
             var y = $(this).val();
             colourRegions(y, 'mean');
           });
+        });
+
+        // MONEYOMETER
+
+        var total_height = 600;
+
+        var moneyometer_dimensions = {
+          margin_top: 10,
+          margin_bottom: 0,
+          margin_left: 10,
+          width: 80,
+          height: 580,
+          max_money: 375
+        }
+
+        var money_scale = d3.scale.linear()
+             .domain([moneyometer_dimensions.max_money, 0])
+             .range([0, moneyometer_dimensions.height]);
+
+        var moneyometer = d3.select('#moneyandpump').append('svg')
+            .attr('width', moneyometer_dimensions.width)
+            .attr('height', moneyometer_dimensions.height)
+            .attr('class', 'moneyometer')
+            .call(d3.svg.axis()
+              .scale(money_scale)
+              .orient("right")
+              .tickFormat(function(d) { return "£" + d + "B"; })
+              .tickSize(10)
+              .tickPadding(12));
+
+        var money = moneyometer.append('rect')
+          .attr('class', 'money')
+          .attr('width', moneyometer_dimensions.width)
+          .attr('height', 0)
+          .attr('transform', "translate(0," + moneyometer_dimensions.height + ")");
+
+        function setMoney(amount) {
+          if (amount > moneyometer_dimensions.max_money) amount = moneyometer_dimensions.max_money;
+          var h = money_scale(moneyometer_dimensions.max_money - amount);
+          var y_offset = moneyometer_dimensions.height - h;
+          money
+            .transition()
+            .duration(400)
+            .attr('height', h)
+            .attr('transform', "translate(0," + y_offset + ")");
+
+        }
+
+        // setMoney(100);
+
+
+
+
+        // TIMESCALE
+
+
+        var timescale_dimensions = {
+          margin_top: 20,
+          margin_bottom: 0,
+          margin_left: 20,
+          width: 1000,
+          height: 50
+        }
+
+        var time_span = {
+          from: new Date('2005-01-01'),
+          to: new Date('2013-06-01'),
+          crash_start: new Date('2008-09-01'),
+          qe_start: new Date('2009-01-01')
+        }
+        var time_scale = d3.time.scale()
+             .domain([time_span.from, time_span.to])
+             .rangeRound([0, timescale_dimensions.width]);
+
+        var time_axis = d3.svg.axis()
+              .scale(time_scale)
+              .orient("down")
+              .ticks(d3.time.month, 12)
+              .tickFormat(d3.time.format('%b %y'))
+              .tickSize(10)
+              .tickPadding(5);
+
+        var timeline = d3.select('#timeline').append('svg')
+            .attr('width', timescale_dimensions.width)
+            .attr('height', timescale_dimensions.height)
+            .attr('class', 'timescale')
+            .call(time_axis);
+
+        var time = timeline.append('rect')
+          .attr('class', 'time')
+          .attr('height', timescale_dimensions.height)
+          .attr('width', 0)
+          .attr('transform', "translate(0,0)");
+
+
+        var qe_offset = time_scale(time_span.qe_start);
+        var time_to_money_scale = d3.scale.linear().domain([qe_offset,timescale_dimensions.width]).range([0,moneyometer_dimensions.max_money]);
+
+        function updateTimeline(val) {
+          if ( val > timescale_dimensions.width) return false;
+
+          var date = time_scale.invert(val);
+          colourRegions(date.getFullYear(), 'mean');
+          time
+            .transition()
+            .duration(800)
+            .attr('width', val);
+
+          if (date >= time_span.qe_start) {
+            var m = time_to_money_scale(val);
+            setMoney(m);
+          }
+        }
+
+        // PUMP
+
+        var leapFrame;
+
+        // var pump_dimensions = {
+        //   height: 200
+        // };
+        // var pump_scale = d3.scale.linear().domain([0,100]).range([0,pump_dimensions.height]);
+
+        var pump = {
+          position: 0,
+          down: true,
+          down_threshold: 150,
+          up_threshold: 300,
+          value: 0
+        };
+
+        function updatePump(pos) {
+          pump.position = pos;
+          if (pump.down) {
+            if (pos > pump.up_threshold) {
+              pump.down = false;
+              // pumpUpTheVolume();
+            }
+          } else {
+            if (pos < pump.down_threshold) {
+              pump.down = true;
+              pumpUpTheVolume();
+            }
+          }
+        }
+
+        var time_to_width_ratio = timescale_dimensions.width / 24;
+
+        function pumpUpTheVolume() {
+          pump.value += 1;
+          // setMoney(pump.value * 20);
+          updateTimeline(pump.value * time_to_width_ratio);
+        }
+
+        Leap.loop(function(frame){
+          leapFrame=frame;
+          if (leapFrame) { // not a programmatic event
+              if(leapFrame.hands.length == 2){
+                var pos = frame.hands[0].palmPosition[1];
+                updatePump(pos);
+                $('#leappos').html(pos);
+              }
+            }
+
         });
       </script>
 
