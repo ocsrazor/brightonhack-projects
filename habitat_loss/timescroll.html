@@ -104,6 +104,14 @@ var gBrush = svg.append("g")
 gBrush.selectAll("rect")
     .attr("height", height);
 
+function reduceDate(){
+ // console.log(x);
+}
+
+function increaseDate(){
+  //console.log(x.invert());
+}
+
 function brushended() {
   if (delay-- < 0) { // need to reduce leap motion "frame rate"
         delay = delayReset;
@@ -115,6 +123,8 @@ function brushended() {
   if (!d3.event.sourceEvent) return; // only transition after input
   var extent0 = brush.extent(),
       extent1 = extent0.map(d3.time.month.round);
+       console.log(extent0);
+      // console.log(extent1);
 
   // if empty when rounded, use floor & ceil instead
   if (extent1[0] >= extent1[1]) {
@@ -135,8 +145,62 @@ Leap.loop(function (frame) {
             . Error: Invalid value for <rect> attribute x="NaN"      d3.v3.js:578
             . Error: Invalid value for <rect> attribute width="NaN"  d3.v3.js:578
           */
-            gBrush.call(brush.extent(frame.pointables[0].tipPosition[0])) // <-- bug here: d3.v3.js:578
-                  .call(brush.event);
+            //gBrush.call(brush.extent(frame.pointables[0].tipPosition[0])) // <-- bug here: d3.v3.js:578
+           // console.log(frame.pointables[0].tipPosition[0]); // 
+
+            // if its -ve - move backwards if its +ve - move fwds:
+            if(frame.pointables[0].tipPosition[0] > 0)
+                increaseDate();
+              else
+                reduceDate();
+
+              var curSlideL = x(brush.extent()[0]);
+              var curSlideR = x(brush.extent()[1]);
+
+              curSlideL = curSlideL -5;
+              curSlideR = curSlideR -5;
+
+              gBrush.call(brush.extent([x.invert(curSlideL),x.invert(curSlideR)]))
+                   .call(brush.event);
+
+
+
+              /*
+              NB:
+
+              begining of scale stuff: beginning of scale stuff:
+              x.invert(0)
+              Sat Jan 01 2011 00:00:00 GMT+0000 (GMT)
+
+              // current position / last position:
+               - need to be able to pass in current date, get a value and then: deduct / add to this value, then pass back in date[0] and date [1] to move slider up or down...
+                = brush.extent()
+                =brush.extent()
+
+                x(brush.extent()[0])
+                  => 439.9798967423585   // = beginning of slide
+                x(brush.extent()[1])
+                  =>468.9285877461507    // = end of slide....
+
+                   // need to add / deduct same amoutn from these.... 
+                   // then pass back via:
+                   x.invert(new number), x.invert(new number)
+
+                   // finall call shoutld work: 
+
+
+              end of scale stuff:
+              x.invert(width)
+                   => Mon Jul 01 2013 00:00:00 GMT+0100 (BST)
+
+              */
+
+            // var tempDataArray = [new Date(2010, 12, 1), new Date(2011, 1, 1)];
+            // gBrush.call(brush.extent(tempDataArray))
+            //       .call(brush.event);
+
+           // brushended();
+
         }
     }
 });

@@ -48,7 +48,7 @@
 
   <div class="slider_wrapper"></div>
   <div class="homeless_data"></div>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/d3.v3.js"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
   <script type"text/javascript" src="js/underscore-min.js"></script>
   <script type"text/javascript" src="js/habitat-prc.js"></script>
@@ -235,6 +235,7 @@ Leap.loop(function (frame) {
     leapFrame = frame;
     if (leapFrame) { // not a programmatic event
         if (leapFrame.pointables[0]) {
+          var test = 0;
             slider
             //.call(brush.event)
             .call(brush.extent(frame.pointables[0].tipPosition[0]))
