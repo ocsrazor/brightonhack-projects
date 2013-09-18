@@ -18,9 +18,9 @@
 /* Slider styles*/
 
 .slider_wrapper{
-	
+
 }
-.axis {
+/*.axis {
   font: 10px sans-serif;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -49,3 +49,7 @@
   stroke-width: 1.25px;
   pointer-events: none;
 }
+
+.grid-background {
+  fill: #ddd;
+}*/

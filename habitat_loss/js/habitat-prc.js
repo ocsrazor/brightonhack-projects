@@ -15,6 +15,8 @@ var chart = {
     scale: null,
     g: null, // group element for chart
     popAndGeo: [],
+    total: 0.0,
+    lastTotal:0.0,
 
     // Helper functions
     translate: function (x, y) {
@@ -92,14 +94,37 @@ var chart = {
     drawHomelessData: function (quarter) {
 
         var that = this; 
+        var textCol = "red"; 
+
+        total = 0;
+        
         this.g.selectAll("." + "county")
-        .data(chart.popAndGeo)
+       // .data(chart.popAndGeo)
+        .transition()
+        .duration(150)
         .attr("transform", function (d) {
+            total += d[that.quarters2[quarter]];
             var centroid = path.centroid(d.geo_json),
                 x = centroid[0],
                 y = centroid[1];
             return "translate(" + x + "," + y + ")" + "scale(" + (d[that.quarters2[quarter]] || 0) + ")" + "translate(" + -x + "," + -y + ")";
-        })
+        });
+
+        // give some feedback to user:
+        if(total > that.lastTotal){
+            textCol = "red";
+        }
+        else{
+            textCol = "green";
+        }
+
+        d3.select(".homeless_data")
+            .transition()
+            .duration(500)
+            .style("background-color", textCol)
+            .text(total.toFixed(4));
+
+            that.lastTotal = total;
     },
 
 
