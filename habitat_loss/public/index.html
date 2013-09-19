@@ -12,18 +12,19 @@
         <meta name="format-detection" content="telephone=no">
         <title>Hackathon Brighton, Habitat Loss</title>    
 
-        <!-- required for the slider
+        <!--
         <script src="http://js.leapmotion.com/0.2.0/leap.js"></script>
         -->
-        
         <script src="js/vendor/d3.v3.min.js"></script>
         <script src="http://d3js.org/topojson.v1.min.js"></script>
-        <script type"text/javascript" src="js/vendor/underscore-min.js"></script>         
+        <script type"text/javascript" src="js/vendor/underscore-min.js"></script>    
+
+        <script src="js/timescroll.js"></script>     
         
         <link href="css/bootstrap.min.css" media="screen,print" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Alegreya:700" rel="stylesheet" type="text/css" />
         <link href="css/main.css" media="screen,print" rel="stylesheet" type="text/css">  
-        <link href="css/slider.css" media="screen,print" rel="stylesheet" type="text/css">
+        <link href="css/timescroll.css" media="screen,print" rel="stylesheet" type="text/css">
         <link href="css/habitat.css" media="screen,print" rel="stylesheet" type="text/css">     
     </head>
     <body> 
@@ -59,6 +60,7 @@
                                 <div class="span6">
                                     <div class="description">
                                         <form>
+                                            <!-- options
                                             <label><input type="radio" name="category" checked />
                                                 Option 1
                                                 
@@ -68,9 +70,12 @@
                                             </label>
                                             <label><input type="radio"  name="category" />Option 3
                                                 
-                                            </label>                                                                                        
+                                            </label> 
+                                            <-->                                                                                       
                                         </form>
+                                        <!-- SLIDER -->
                                         <div class="slider-wrap"></div>
+                                        <!-- -->
                                     </div>
                                 </div>                                
                             </div>
@@ -88,7 +93,9 @@
                                         <p>
                                             <span>Like frogs</span> our habitat has shrinked during the financial crisis, bringing the UK population closer to extinction... This analogy 
                                         </p>
+                                <!-- MAP -->
                                 <div class="map"></div>
+                                <!-- -->
                             </div>
                         </div>
                         <div class="span4">
@@ -119,9 +126,6 @@
             </footer>
         
         </div>
-        <script type"text/javascript" src="js/habitat.js"></script>
-        <!-- commenting the slider out
-        <script type"text/javascript" src="js/leap.js"></script>
-        -->
+        <script type"text/javascript" src="js/habitat-prc.js"></script>
     </body>
 </html>
