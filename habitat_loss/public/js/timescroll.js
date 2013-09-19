@@ -1,11 +1,20 @@
-
-var leapFrame;
-var delayReset = 50; // increase to reduce leap motion "frame"
+var delayReset = 5; // increase to reduce leap motion "frame"
 var delay = delayReset;
+var atEndOfSlide = false; // flag to show rest of text/ info about data
+var counter = 0;
+var slideVal; 
+var lastSlideVal = 0;
 
 var margin = {top: 200, right: 40, bottom: 200, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
+
+var dataLength = (chart.quarters2.length -1); // 
+
+var xData = d3.scale.linear() //scale for mapping slider position to homelessness data
+    .domain([0, width])
+    .range([0, dataLength])
+    .clamp(true);
 
 var x = d3.time.scale()
     .domain([new Date(2010, 12, 1), new Date(2013, 6, 1)])
@@ -13,10 +22,10 @@ var x = d3.time.scale()
 
 var brush = d3.svg.brush()
     .x(x)
-    .extent([new Date(2011, 7, 1), new Date(2011, 8, 1)])
+    .extent([new Date(2010, 12, 1), new Date(2011, 2, 1)])
     .on("brushend", brushended);
 
-var svg = d3.select(".slider-wrap").append("svg")
+var svg = d3.select(".slider_wrapper").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -59,14 +68,10 @@ var gBrush = svg.append("g")
 gBrush.selectAll("rect")
     .attr("height", height);
 
+
+
 function brushended() {
-  if (delay-- < 0) { // need to reduce leap motion "frame rate"
-        delay = delayReset;
-        //chart.drawHomelessData(counter++);
-        // if (counter > (chart.quarters2.length -1)) { // hardcoded length of homeless data: 8 here
-        //     counter = 0;
-        // }
-    }
+
   if (!d3.event.sourceEvent) return; // only transition after input
   var extent0 = brush.extent(),
       extent1 = extent0.map(d3.time.month.round);
@@ -82,16 +87,54 @@ function brushended() {
       .call(brush.event);
 }
 
+function updateSlider(leapPoint) {
+   if (delay-- < 0) { // need to reduce leap motion "frame rate"
+        delay = delayReset;
+
+    var curSlideL = x(brush.extent()[0]);
+    var curSlideR = x(brush.extent()[1]);
+    var slideVal = Math.floor(xData(curSlideR)); 
+
+    if(slideVal==dataLength){
+      //console.log("show data");
+      atEndOfSlide = true;
+    }
+    else
+      atEndOfSlide = false;
+
+    if(lastSlideVal != slideVal){
+      lastSlideVal = slideVal;
+      chart.drawHomelessData(slideVal);
+      console.log(slideVal);
+   }
+
+    // if its -ve - move backwards if its +ve - move fwds:
+    if (leapPoint > 0) {
+        if (curSlideR > width) { // at end of slide.
+            return;
+        } else {
+            curSlideL = curSlideL + 5;
+            curSlideR = curSlideR + 5;
+        }
+    } else {
+        if (curSlideL < 0) { // at beginning of slide
+            return;
+        } else {
+            curSlideL = curSlideL - 5;
+            curSlideR = curSlideR - 5;
+        }
+    }
+    gBrush.call(brush.extent([x.invert(curSlideL), x.invert(curSlideR)]))
+        .call(brush.event);
+      }
+      
+}
+
 Leap.loop(function (frame) {
-    leapFrame = frame;
-    if (leapFrame) { // not a programmatic event
-        if (leapFrame.pointables[0]) {
-          /*  bug here: 
-            . Error: Invalid value for <rect> attribute x="NaN"      d3.v3.js:578
-            . Error: Invalid value for <rect> attribute width="NaN"  d3.v3.js:578
-          */
-            gBrush.call(brush.extent(frame.pointables[0].tipPosition[0])) // <-- bug here: d3.v3.js:578
-                  .call(brush.event);
+    //leapFrame = frame;
+    if (frame) { // not a programmatic event
+        if (frame.pointables[0]) {
+          updateSlider(frame.pointables[0].tipPosition[0]);
         }
     }
 });
