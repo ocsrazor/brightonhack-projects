@@ -1,0 +1,68 @@
+var incomes_by_year = [
+	{
+		"Year": "2002",
+		"Income": "20376",
+		"Gradient": "",
+		"Scale": ""
+	},
+	{
+		"Year": "2003",
+		"Income": "21124",
+		"Gradient": "748",
+		"Scale": "1.642"
+	},
+	{
+		"Year": "2004",
+		"Income": "22056",
+		"Gradient": "932",
+		"Scale": "1.818"
+	},
+	{
+		"Year": "2005",
+		"Income": "22888",
+		"Gradient": "832",
+		"Scale": "1.723"
+	},
+	{
+		"Year": "2006",
+		"Income": "23554",
+		"Gradient": "666",
+		"Scale": "1.564"
+	},
+	{
+		"Year": "2007",
+		"Income": "24043",
+		"Gradient": "489",
+		"Scale": "1.395"
+	},
+	{
+		"Year": "2008",
+		"Income": "25165",
+		"Gradient": "1122",
+		"Scale": "2"
+	},
+	{
+		"Year": "2009",
+		"Income": "25806",
+		"Gradient": "641",
+		"Scale": "1.54"
+	},
+	{
+		"Year": "2010",
+		"Income": "25882",
+		"Gradient": "76",
+		"Scale": "1"
+	},
+	{
+		"Year": "2011",
+		"Income": "26244",
+		"Gradient": "362",
+		"Scale": "1.273"
+	},
+	{
+		"Year": "2012",
+		"Income": "26462",
+		"Gradient": "218",
+		"Scale": "1.136"
+	}
+]

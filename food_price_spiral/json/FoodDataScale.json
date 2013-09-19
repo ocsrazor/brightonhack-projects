@@ -1,0 +1,68 @@
+var prices_by_year = [
+	{
+		"Year": "2002",
+		"Price": "12018.8",
+		"Gradient": "",
+		"Scale": ""
+	},
+	{
+		"Year": "2003",
+		"Price": "12182.2",
+		"Gradient": "163.4",
+		"Scale": "1.239"
+	},
+	{
+		"Year": "2004",
+		"Price": "12255.2",
+		"Gradient": "73",
+		"Scale": "1.174"
+	},
+	{
+		"Year": "2005",
+		"Price": "12087.2",
+		"Gradient": "-168",
+		"Scale": "1"
+	},
+	{
+		"Year": "2006",
+		"Price": "12754.7",
+		"Gradient": "667.5",
+		"Scale": "1.603"
+	},
+	{
+		"Year": "2007",
+		"Price": "13282.2",
+		"Gradient": "527.5",
+		"Scale": "1.502"
+	},
+	{
+		"Year": "2008",
+		"Price": "14499.8",
+		"Gradient": "1217.6",
+		"Scale": "2"
+	},
+	{
+		"Year": "2009",
+		"Price": "15593.8",
+		"Gradient": "1094",
+		"Scale": "1.911"
+	},
+	{
+		"Year": "2010",
+		"Price": "16167",
+		"Gradient": "573.2",
+		"Scale": "1.535"
+	},
+	{
+		"Year": "2011",
+		"Price": "17316.5",
+		"Gradient": "1149.5",
+		"Scale": "1.951"
+	},
+	{
+		"Year": "2012",
+		"Price": "18034",
+		"Gradient": "717.5",
+		"Scale": "1.639"
+	}
+]
