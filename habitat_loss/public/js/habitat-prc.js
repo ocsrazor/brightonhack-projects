@@ -42,7 +42,7 @@ var chart = {
     },
 
     init: function () {
-        this.g = d3.select('.map')
+        this.g = d3.select('.the-map')
             .append('svg')
             .append('g')
             .attr('transform', this.translate(50, 50));
@@ -118,7 +118,7 @@ var chart = {
             textCol = "green";
         }
 
-        d3.select(".homeless_data")
+        d3.select(".the-map")
             .transition()
             .duration(500)
             .style("background-color", textCol)

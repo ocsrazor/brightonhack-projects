@@ -1,20 +1,10 @@
-var delayReset = 5; // increase to reduce leap motion "frame"
+var leapFrame;
+var delayReset = 50; // increase to reduce leap motion "frame"
 var delay = delayReset;
-var atEndOfSlide = false; // flag to show rest of text/ info about data
-var counter = 0;
-var slideVal; 
-var lastSlideVal = 0;
 
-var margin = {top: 200, right: 40, bottom: 200, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
-var dataLength = (chart.quarters2.length -1); // 
-
-var xData = d3.scale.linear() //scale for mapping slider position to homelessness data
-    .domain([0, width])
-    .range([0, dataLength])
-    .clamp(true);
+var margin = {top: 0, right: 40, bottom: 200, left: 80},
+    width = 900 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
 
 var x = d3.time.scale()
     .domain([new Date(2010, 12, 1), new Date(2013, 6, 1)])
@@ -25,7 +15,7 @@ var brush = d3.svg.brush()
     .extent([new Date(2010, 12, 1), new Date(2011, 2, 1)])
     .on("brushend", brushended);
 
-var svg = d3.select(".slider_wrapper").append("svg")
+var svg = d3.select(".slider-wrap").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -68,10 +58,14 @@ var gBrush = svg.append("g")
 gBrush.selectAll("rect")
     .attr("height", height);
 
-
-
 function brushended() {
-
+  if (delay-- < 0) { // need to reduce leap motion "frame rate"
+        delay = delayReset;
+        //chart.drawHomelessData(counter++);
+        // if (counter > (chart.quarters2.length -1)) { // hardcoded length of homeless data: 8 here
+        //     counter = 0;
+        // }
+    }
   if (!d3.event.sourceEvent) return; // only transition after input
   var extent0 = brush.extent(),
       extent1 = extent0.map(d3.time.month.round);
@@ -88,25 +82,9 @@ function brushended() {
 }
 
 function updateSlider(leapPoint) {
-   if (delay-- < 0) { // need to reduce leap motion "frame rate"
-        delay = delayReset;
 
     var curSlideL = x(brush.extent()[0]);
     var curSlideR = x(brush.extent()[1]);
-    var slideVal = Math.floor(xData(curSlideR)); 
-
-    if(slideVal==dataLength){
-      //console.log("show data");
-      atEndOfSlide = true;
-    }
-    else
-      atEndOfSlide = false;
-
-    if(lastSlideVal != slideVal){
-      lastSlideVal = slideVal;
-      chart.drawHomelessData(slideVal);
-      console.log(slideVal);
-   }
 
     // if its -ve - move backwards if its +ve - move fwds:
     if (leapPoint > 0) {
@@ -126,15 +104,15 @@ function updateSlider(leapPoint) {
     }
     gBrush.call(brush.extent([x.invert(curSlideL), x.invert(curSlideR)]))
         .call(brush.event);
-      }
-      
 }
 
 Leap.loop(function (frame) {
     //leapFrame = frame;
     if (frame) { // not a programmatic event
         if (frame.pointables[0]) {
+
           updateSlider(frame.pointables[0].tipPosition[0]);
+
         }
     }
 });
