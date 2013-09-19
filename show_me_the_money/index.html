@@ -1,8 +1,6 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js" charset="utf-8"></script>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <style type="text/css">
       body { font-family: Verdana; color: #666; background: #666 }
       div { padding: 5px; }
@@ -73,7 +71,7 @@
       <h1>Quantitive Ease</h1>
     </div>
     <div id="timeline" style = "width: 100%; height: 50px; float: left"></div>
-    <div style="clear: both" id="leappos">0</div>
+    <div style="clear: both"></div>
     <textarea id="debug" rows="10" cols="60" style="background: #999"></textarea>
 
     <script src="//js.leapmotion.com/0.2.0/leap.js"></script>
@@ -352,7 +350,6 @@
             if(leapFrame.hands.length == 2){
               var pos = frame.hands[0].palmPosition[1];
               updatePump(pos);
-              $('#leappos').html(pos);
             }
             if (leapFrame.gestures.length > 0) {
               console.log(leapFrame.gestures);
