@@ -4,10 +4,9 @@
     <script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js" charset="utf-8"></script>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <style type="text/css">
-      body { font-family: Verdana; color: #666 }
+      body { font-family: Verdana; color: #666; background: #666 }
       div { padding: 5px; }
-    </style>
-    <style>
+      h1 { color: #ccc }
     /* slider style */
     .axis {
       font: 10px sans-serif;
@@ -61,22 +60,46 @@
     }
 
     .moneyometer .money {
-      fill: #88cc88;
+      fill: #0033cc;
       opacity: 0.4;
     }
     </style>
   </head>
   <body>
-    <div id="mapdiv" style="width: 400px; height: 600px; float: left"></div>
-    <div id="moneyandpump" style ="width: 300px; height: 600px; float: left"></div>
+    <div id="mapdiv" style="width: 400px; height: 700px; float: left">
+      <h1>Where in the UK</h1>
+    </div>
+    <div id="moneyandpump" style ="width: 300px; height: 700px; float: left">
+      <h1>Quantitive Ease</h1>
+    </div>
     <div id="timeline" style = "width: 100%; height: 50px; float: left"></div>
     <div style="clear: both" id="leappos">0</div>
+    <textarea id="debug" rows="10" cols="60" style="background: #999"></textarea>
 
     <script src="http://js.leapmotion.com/0.2.0/leap.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
 
     <script type="text/javascript">
-
+            
+        /*
+          TODO:
+          
+          Setup stage - use % widths for divs on the page (perhaps with a sensible minmum ?)
+          
+          Calculate widths of those divs to esatblish intial size for SVG stage
+          
+          When the timeline is initialised set the sizes of the bottom 10% and the top 1% (images of flat cap + bowler hat)
+          A circle motion with a single finger is caught by Leap and the timeline goes forward by, say, 3 months (or 1 year if data does not allow)
+          
+          Then we reach the crash time... (date stored in global var)
+          A new gesture detected to start automatic timeline forward to the beginning of QE (e.g. 3 months every second... ? )
+          
+          Now show the moneyometer... 
+          Finally we "pump" money into the economy (QE) using the Leap pump action and move the timeline forward as much as the downward motion allows 
+            (i.e. no "threshold", but continuous motion by storing the last position of 2 palms and testing for downward motion)
+          
+        */
+        
         var scale = d3.scale.linear().domain([19000, 40000]).range(['#fc0', '#f00']);
 
         //Width and height
@@ -157,15 +180,28 @@
           });
         }
 
-
-        $(function() {
-          $('#year').change(function() {
-            var y = $(this).val();
-            colourRegions(y, 'mean');
-          });
-        });
-
         // MONEYOMETER
+        
+        /*
+        TODO : 
+          create object for these variables... QE ?
+          calulate (and round up to nearest 50) the diff between the largest value from csv data and the smallest.
+            and set max_money
+          set first and last dates for QE based on csv
+            
+          create function call to setup and display moneyometer.... (when timeline reaches QE.first)
+          
+          
+        */
+        var easing_by_date = {};
+        
+        d3.csv('quantitive_easing.csv', function(rows) { 
+          for(i=0; i<=rows.length; i++) {
+            if (rows[i]) {
+              if (rows[i].date) easing_by_date[rows[i].date]=+rows[i].total;
+            }
+          }
+        });
 
         var total_height = 600;
 
@@ -175,7 +211,7 @@
           margin_left: 10,
           width: 80,
           height: 580,
-          max_money: 375
+          max_money: 350
         }
 
         var money_scale = d3.scale.linear()
@@ -189,7 +225,7 @@
             .call(d3.svg.axis()
               .scale(money_scale)
               .orient("right")
-              .tickFormat(function(d) { return "£" + d + "B"; })
+              .tickFormat(function(d) { return (d > 0) ? "£" + d + "B" : ""; })
               .tickSize(10)
               .tickPadding(12));
 
@@ -211,13 +247,10 @@
 
         }
 
-        // setMoney(100);
-
-
-
-
         // TIMESCALE
-
+        // TODO: use the right hand side of the screen to fit in the images of the 2 men and tie the data to the wealth gap data (to come!)
+        
+        
 
         var timescale_dimensions = {
           margin_top: 20,
@@ -229,9 +262,9 @@
 
         var time_span = {
           from: new Date('2005-01-01'),
-          to: new Date('2013-06-01'),
+          to: new Date('2013-03-25'),
           crash_start: new Date('2008-09-01'),
-          qe_start: new Date('2009-01-01')
+          qe_start: new Date('2009-03-11')
         }
         var time_scale = d3.time.scale()
              .domain([time_span.from, time_span.to])
@@ -259,21 +292,24 @@
 
 
         var qe_offset = time_scale(time_span.qe_start);
-        var time_to_money_scale = d3.scale.linear().domain([qe_offset,timescale_dimensions.width]).range([0,moneyometer_dimensions.max_money]);
+        // var time_to_money_scale = d3.scale.linear().domain([qe_offset,timescale_dimensions.width]).range([0,moneyometer_dimensions.max_money]);
 
         function updateTimeline(val) {
+          
           if ( val > timescale_dimensions.width) return false;
 
           var date = time_scale.invert(val);
           colourRegions(date.getFullYear(), 'mean');
+          
           time
             .transition()
             .duration(800)
             .attr('width', val);
 
           if (date >= time_span.qe_start) {
-            var m = time_to_money_scale(val);
-            setMoney(m);
+            var d = date.toISOString().substring(0,10);
+            var m = easing_by_date[d];
+            if (m) setMoney(m);
           }
         }
 
@@ -288,14 +324,22 @@
 
         var pump = {
           position: 0,
-          down: true,
-          down_threshold: 150,
-          up_threshold: 300,
-          value: 0
+          value: qe_offset,
+          max: timescale_dimensions.width,
+          num_pumps: 20,
+          distance: 500
         };
+        
+        pump['timechange_per_pump'] = (pump.max - pump.value) / pump.num_pumps
 
         function updatePump(pos) {
+          var last_pos = pump.position;
           pump.position = pos;
+          if (pos < last_pos) {
+            var diff = last_pos - pos;            
+            
+            
+          }
           if (pump.down) {
             if (pos > pump.up_threshold) {
               pump.down = false;
@@ -309,24 +353,26 @@
           }
         }
 
-        var time_to_width_ratio = timescale_dimensions.width / 24;
+        var time_to_width_ratio = (timescale_dimensions.width - qe_offset) / 24;
 
         function pumpUpTheVolume() {
           pump.value += 1;
           // setMoney(pump.value * 20);
-          updateTimeline(pump.value * time_to_width_ratio);
+          updateTimeline(qe_offset + (pump.value * time_to_width_ratio));
         }
-
+        
         Leap.loop(function(frame){
           leapFrame=frame;
           if (leapFrame) { // not a programmatic event
-              if(leapFrame.hands.length == 2){
-                var pos = frame.hands[0].palmPosition[1];
-                updatePump(pos);
-                $('#leappos').html(pos);
-              }
+            if(leapFrame.hands.length == 2){
+              var pos = frame.hands[0].palmPosition[1];
+              updatePump(pos);
+              $('#leappos').html(pos);
             }
-
+            if (leapFrame.gestures.length > 0) {
+              console.log(leapFrame.gestures);
+            }
+          }
         });
       </script>
 
