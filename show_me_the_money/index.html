@@ -2,10 +2,12 @@
   <head>
     <meta charset="utf-8">
     <style type="text/css">
-      body { font-family: Arial, sans-serif; color: #999; background: #222; font-size: 14px;}
+      body { font-family: Arial, sans-serif; color: #999; background: #222; font-size: 14px; margin: 0; padding: 100px 0 0;}
       div { padding: 5px; }
-      h1 { color: #fff; font-weight: normal; font-size: 20px; padding: 5px; background: #444; }
+      h1 { color: #fff; font-weight: normal; font-size: 20px; padding: 5px; background: #f00; }
       h1 span.subhead { display: block; color: #ccc; font-size: 11px;}
+      h3 { color: #ccc; text-transform: uppercase; font-size: 13px; margin: 5px 0; padding: 0 5px;}
+      h3 span.lighter { display: block; color: #999; font-size: 11px; font-weight: normal;}
     /* slider style */
     .axis {
       font: 10px sans-serif;
@@ -37,17 +39,28 @@
       pointer-events: none;
     }
 
+    #timeline-wrap {
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      border-bottom: 1px solid #666;
+      background: #000;
+      padding: 3px 0;
+    }
+
+
     .timescale {
       fill: none;
       stroke: #000;
       stroke-opacity: .5;
       stroke-width: 1.25px;
-      border: 1px dotted #ccc;
+      border-top: 1px solid #ccc;
     }
 
     .timescale .time {
-      fill: #aaa;
-      opacity: 0.4;
+      fill: #fff;
+      opacity: 0.6;
     }
 
     .moneyometer {
@@ -73,20 +86,23 @@
     </style>
   </head>
   <body>
-    <h1>
-      Financial crisis timeline
-      <span class="subhead">INSTRUCTIONS GO HERE</span>
-    </h1>
     <div id="mapdiv" style="width: 400px; height: 700px; float: left">
       <h1>Regionality</h1>
     </div>
     <div id="moneyandpump" style ="width: 80px; height: 700px; float: left">
       <h1>Q.E.</h1>
     </div>
-    <div id="wealthgap" style ="width: 900px; height: 700px; float: left">
+    <div id="wealthgap" style ="width: 800px; height: 700px; float: left">
       <h1>The Wealth Gap</h1>
     </div>
-    <div id="timeline" style = "width: 100%; height: 50px;"></div>
+    <div style="clear: both;"></div>
+    <div id="timeline-wrap">
+      <h3>
+        Crisis timeline
+        <span class="lighter">Instructions go here</span>
+      </h3>
+      <div id="timeline" style = "width: 100%; height: 30px;"></div>
+    </div>
 
     <script src="//js.leapmotion.com/0.2.0/leap.js"></script>
     <script src="//d3js.org/d3.v3.min.js"></script>
@@ -269,7 +285,7 @@
           margin_bottom: 0,
           margin_left: 20,
           width: parseInt(d3.select('#timeline').style('width')) - 50,
-          height: 50
+          height: 30
         }
 
         var time_span = {
@@ -298,7 +314,7 @@
 
         var time = timeline.append('rect')
           .attr('class', 'time')
-          .attr('height', timescale_dimensions.height)
+          .attr('height', 5)
           .attr('width', 0)
           .attr('transform', "translate(0,0)");
 
