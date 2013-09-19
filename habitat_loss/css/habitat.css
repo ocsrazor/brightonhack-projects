@@ -20,36 +20,37 @@
 .slider_wrapper{
 
 }
-/*.axis {
-  font: 10px sans-serif;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+.axis text {
+  font: 11px sans-serif;
 }
 
-.axis .domain {
+.axis path {
+  display: none;
+}
+
+.axis line {
   fill: none;
   stroke: #000;
-  stroke-opacity: .3;
-  stroke-width: 10px;
-  stroke-linecap: round;
-}
-
-.axis .halo {
-  fill: none;
-  stroke: #ddd;
-  stroke-width: 8px;
-  stroke-linecap: round;
-}
-
-.slider .handle {
-  fill: #fff;
-  stroke: #000;
-  stroke-opacity: .5;
-  stroke-width: 1.25px;
-  pointer-events: none;
+  shape-rendering: crispEdges;
 }
 
 .grid-background {
   fill: #ddd;
-}*/
+}
+
+.grid line,
+.grid path {
+  fill: none;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.grid .minor.tick line {
+  stroke-opacity: .5;
+}
+
+.brush .extent {
+  stroke: #000;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}

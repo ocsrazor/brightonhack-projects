@@ -42,6 +42,7 @@
 <body>
 <script src="http://js.leapmotion.com/0.2.0/leap.js"></script>
 <script src="http://d3js.org/d3.v3.js"></script>
+<!-- <script type"text/javascript" src="js/slider.js"></script> -->
 <script>
 
 var leapFrame;
@@ -58,7 +59,7 @@ var x = d3.time.scale()
 
 var brush = d3.svg.brush()
     .x(x)
-    .extent([new Date(2011, 7, 1), new Date(2011, 8, 1)])
+    .extent([new Date(2010, 12, 1), new Date(2011, 2, 1)])
     .on("brushend", brushended);
 
 var svg = d3.select("body").append("svg")
@@ -104,14 +105,6 @@ var gBrush = svg.append("g")
 gBrush.selectAll("rect")
     .attr("height", height);
 
-function reduceDate(){
- // console.log(x);
-}
-
-function increaseDate(){
-  //console.log(x.invert());
-}
-
 function brushended() {
   if (delay-- < 0) { // need to reduce leap motion "frame rate"
         delay = delayReset;
@@ -123,8 +116,6 @@ function brushended() {
   if (!d3.event.sourceEvent) return; // only transition after input
   var extent0 = brush.extent(),
       extent1 = extent0.map(d3.time.month.round);
-       console.log(extent0);
-      // console.log(extent1);
 
   // if empty when rounded, use floor & ceil instead
   if (extent1[0] >= extent1[1]) {
@@ -137,69 +128,37 @@ function brushended() {
       .call(brush.event);
 }
 
+function updateSlider(leapPoint) {
+
+    var curSlideL = x(brush.extent()[0]);
+    var curSlideR = x(brush.extent()[1]);
+
+    // if its -ve - move backwards if its +ve - move fwds:
+    if (leapPoint > 0) {
+        if (curSlideR > width) { // at end of slide.
+            return;
+        } else {
+            curSlideL = curSlideL + 5;
+            curSlideR = curSlideR + 5;
+        }
+    } else {
+        if (curSlideL < 0) { // at beginning of slide
+            return;
+        } else {
+            curSlideL = curSlideL - 5;
+            curSlideR = curSlideR - 5;
+        }
+    }
+    gBrush.call(brush.extent([x.invert(curSlideL), x.invert(curSlideR)]))
+        .call(brush.event);
+}
+
 Leap.loop(function (frame) {
-    leapFrame = frame;
-    if (leapFrame) { // not a programmatic event
-        if (leapFrame.pointables[0]) {
-          /*  bug here: 
-            . Error: Invalid value for <rect> attribute x="NaN"      d3.v3.js:578
-            . Error: Invalid value for <rect> attribute width="NaN"  d3.v3.js:578
-          */
-            //gBrush.call(brush.extent(frame.pointables[0].tipPosition[0])) // <-- bug here: d3.v3.js:578
-           // console.log(frame.pointables[0].tipPosition[0]); // 
+    //leapFrame = frame;
+    if (frame) { // not a programmatic event
+        if (frame.pointables[0]) {
 
-            // if its -ve - move backwards if its +ve - move fwds:
-            if(frame.pointables[0].tipPosition[0] > 0)
-                increaseDate();
-              else
-                reduceDate();
-
-              var curSlideL = x(brush.extent()[0]);
-              var curSlideR = x(brush.extent()[1]);
-
-              curSlideL = curSlideL -5;
-              curSlideR = curSlideR -5;
-
-              gBrush.call(brush.extent([x.invert(curSlideL),x.invert(curSlideR)]))
-                   .call(brush.event);
-
-
-
-              /*
-              NB:
-
-              begining of scale stuff: beginning of scale stuff:
-              x.invert(0)
-              Sat Jan 01 2011 00:00:00 GMT+0000 (GMT)
-
-              // current position / last position:
-               - need to be able to pass in current date, get a value and then: deduct / add to this value, then pass back in date[0] and date [1] to move slider up or down...
-                = brush.extent()
-                =brush.extent()
-
-                x(brush.extent()[0])
-                  => 439.9798967423585   // = beginning of slide
-                x(brush.extent()[1])
-                  =>468.9285877461507    // = end of slide....
-
-                   // need to add / deduct same amoutn from these.... 
-                   // then pass back via:
-                   x.invert(new number), x.invert(new number)
-
-                   // finall call shoutld work: 
-
-
-              end of scale stuff:
-              x.invert(width)
-                   => Mon Jul 01 2013 00:00:00 GMT+0100 (BST)
-
-              */
-
-            // var tempDataArray = [new Date(2010, 12, 1), new Date(2011, 1, 1)];
-            // gBrush.call(brush.extent(tempDataArray))
-            //       .call(brush.event);
-
-           // brushended();
+          updateSlider(frame.pointables[0].tipPosition[0]);
 
         }
     }
