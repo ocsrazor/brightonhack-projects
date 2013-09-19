@@ -326,40 +326,25 @@
           position: 0,
           value: qe_offset,
           max: timescale_dimensions.width,
-          num_pumps: 20,
+          num_pumps: 8,
           distance: 500
         };
         
-        pump['timechange_per_pump'] = (pump.max - pump.value) / pump.num_pumps
+        pump['timechange_per_pump'] = (pump.max - pump.value) / pump.num_pumps;
 
         function updatePump(pos) {
           var last_pos = pump.position;
-          pump.position = pos;
-          if (pos < last_pos) {
+          if (pos < pump.position) {
             var diff = last_pos - pos;            
-            
-            
+            var pumped = (diff / pump.distance) * pump.timechange_per_pump;
+            pump.value += pumped
+            updateTimeline(pump.value);
           }
-          if (pump.down) {
-            if (pos > pump.up_threshold) {
-              pump.down = false;
-              // pumpUpTheVolume();
-            }
-          } else {
-            if (pos < pump.down_threshold) {
-              pump.down = true;
-              pumpUpTheVolume();
-            }
-          }
+          pump.position = pos;
+          // console.log(pump.value + " " + pump.position)
         }
 
         var time_to_width_ratio = (timescale_dimensions.width - qe_offset) / 24;
-
-        function pumpUpTheVolume() {
-          pump.value += 1;
-          // setMoney(pump.value * 20);
-          updateTimeline(qe_offset + (pump.value * time_to_width_ratio));
-        }
         
         Leap.loop(function(frame){
           leapFrame=frame;
