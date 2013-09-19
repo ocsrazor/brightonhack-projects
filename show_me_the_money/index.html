@@ -337,6 +337,8 @@
             var d = date.toISOString().substring(0,10);
             var m = easing_by_date[d];
             if (m) setMoney(m);
+          } else {
+            setMoney(0);
           }
         }
 
@@ -376,13 +378,23 @@
         function moveInTime(y) {
 
           if (currentDate >= time_span.qe_start && y > 0) return false;
+          
           currentDate.setFullYear(currentDate.getFullYear() + y);
-
-          if (currentDate >= time_span.qe_start && y > 0) currentDate = time_span.qe_start;
-          if (currentDate <= time_span.from && y < 0) currentDate = time_span.from;
+          // Stop at qe_start
+          if (currentDate >= time_span.qe_start && y > 0) {
+            currentDate = time_span.qe_start;
+            d3.select('#instructions').html('Now pump some money into the economy! (needs 2 hands)');
+          }
+          if (currentDate <= time_span.from && y < 0) {
+            currentDate = time_span.from;
+          }
+          if (currentDate < time_span.qe_start) {
+            d3.select('#instructions').html('Turn your finger in a circle to go forward 1 year....');
+          }
 
           var pos = time_scale(currentDate);
           updateTimeline(pos);
+          console.log(currentDate);
         }
 
         var time_to_width_ratio = (timescale_dimensions.width - qe_offset) / 24;
