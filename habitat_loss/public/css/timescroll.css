@@ -13,7 +13,8 @@
 }
 
 .slider-wrap .grid-background {
-  fill: #ddd;
+  fill: #5e6599;
+  opacity: 0.9;
 }
 
 .slider-wrap .grid line,
