@@ -13,6 +13,7 @@ var chart = {
     path: null,
     extent: null,
     scale: null,
+    colorScale: null,
     g: null, // group element for chart
     popAndGeo: [],
     total: 0.0,
@@ -42,7 +43,7 @@ var chart = {
     },
 
     init: function () {
-        this.g = d3.select('.map')
+        this.g = d3.select('.the-map')
             .append('svg')
             .append('g')
             .attr('transform', this.translate(50, 50));
@@ -62,6 +63,8 @@ var chart = {
             return d["2011 Q2"];
         });
         this.scale = d3.scale.linear().domain(this.extent).range(['white', 'blue']);
+        //this.colorScale = d3.scale.linear().domain(['red', 'green']).range([0, 1]);
+
     },
 
     make: function () {
@@ -118,11 +121,25 @@ var chart = {
             textCol = "green";
         }
 
-        d3.select(".homeless_data")
+        this.g.selectAll("." + "county")
+       // .data(chart.popAndGeo)
+        .transition()
+        .duration(250)
+        .style('fill', function(d) {
+            return "white";
+        })
+        .transition()
+        .duration(250)
+        .style('fill', function(d) {
+            return textCol;
+        });
+
+        //console.log(total.toFixed(4))
+        d3.select(".inner_frog")
             .transition()
             .duration(500)
-            .style("background-color", textCol)
-            .text(total.toFixed(4));
+            .style("color", textCol)
+            .text(total.toFixed(2));
 
             that.lastTotal = total;
     },
@@ -135,8 +152,8 @@ d3.json('data/HouseholdHomeless2.json', function (err, jsonHomeless) {
     chart.data = jsonHomeless;
 
     //TODO: delete after testing
-    d3.json('data/uk2.json', function (err, jsonGeoData) {
-        chart.geodata = jsonGeoData;
+    // d3.json('data/uk2.json', function (err, jsonGeoData) {
+    //     chart.geodata = jsonGeoData;
 
         // only using this data now, delete other json loads after testing.
         d3.json('data/countyPopAndGeo.json', function (err, jsonPopAndGeoData) {
@@ -146,5 +163,5 @@ d3.json('data/HouseholdHomeless2.json', function (err, jsonHomeless) {
             chart.init();
             chart.make();
         });
-    }); //TODO: delete after testing 
+    //}); //TODO: delete after testing 
 }); //TODO: delete after testing

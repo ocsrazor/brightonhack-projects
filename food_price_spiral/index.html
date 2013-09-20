@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!-- Authors:
+Riccardo Tonini RiccardoTonini@gmail.com
+Marco Gilardi gilardi81@gmail.com
+Salih ÖZTOP soztop@yahoo.com
+
+Big ups: 
+Peter Passaro peter@nousplan.com
+-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="30">
+    <link rel="canonical" href="http://d3js.org/">
+    <title>Brighton Bid Data Hackathon: 2003-2013 Food Prices</title>
+    <script type="text/javascript" src="http://d3js.org/d3.v3.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="json/FoodDataMonthly.json"></script>
+    <script type="text/javascript" src="json/IndexData.json"></script>
+    <script src="nv.d3.js"></script>
+    <script src="src/tooltip.js"></script>
+    <script src="src/utils.js"></script>
+    <script src="src/models/legend.js"></script>
+    <script src="src/models/axis.js"></script>
+    <script src="src/models/scatter.js"></script>
+    <script src="src/models/line.js"></script>
+    <script src="src/models/lineChart.js"></script>
+    <script type="text/javascript" src="js/popover.js" ></script>
+    <script type="text/javascript" src="js/FoodPriceEntity.js"></script>
+    <script type="text/javascript" src="js/food_price.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/food_price.css">
+    <link href="src/nv.d3.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>UK Food Price Spiral</h1>
+    <div id="explanation">
+        <p>This spiral shows the change in the ratio 'Median Gross Annual Income / Annual Average Food Shopping Price'.</p>
+        <p>In other words, it shows the number of average shopping baskets that one can buy with the annual average income, year by year.</p>
+    </div>
+    <div id="main-wrapper">
+        <div id="instructions">
+            <h3> Instructions</h3>
+            <!--<ul>
+                <li>Move the mouse on a spiral segment to change the basket image.</li>
+                <li>Click on the year to open the graph of prices.</li>
+                <li>In the graph, select a product name to hide/show its graph.</li>
+            </ul> -->
+            <p>Move the mouse on a spiral segment to change the basket image.</p>
+            <p>Click on the year to open the graph of prices.</p>
+            <p>In the graph, select a product name to hide/show its graph.</p>
+        </div>
+    </div>
+    <div id="pop1" class="popover" align="center">
+        <div id="chartZoom">
+            <a href="#" id="zoomIn">Zoom In</a> <a href="#" id="zoomOut">Zoom Out</a>
+            <a href="javascript:closePopOver('pop1');" title="Close window">Close me</a>
+        </div>
+        <div id="chart1" class='with-transitions'>
+            <svg></svg>
+        </div>
+    </div>
+    <script type="text/javascript">
+        /**
+         * Draw Line Chart showing food item prices trend 
+         * throughout a specific year. 
+         * @param {Number} year
+         * @returns {undefined}
+         */
+        var drawLineChart = function drawLineChart(year) {
+
+            nv.addGraph(function() {
+                var chart = nv.models.lineChart();
+                var fitScreen = false;
+                var width = 600;
+                var height = 300;
+                var zoom = 1 + 0.25 * 3;
+
+                chart.useInteractiveGuideline(true);
+                chart.xAxis
+                        .axisLabel('Months')
+                        .tickFormat(d3.format(',r'));
+
+                chart.yAxis
+                        .axisLabel('GB Pounds (£)')
+                        .tickFormat(d3.format(',.2f'));
+
+                d3.select('#chart1 svg')
+                        .attr('perserveAspectRatio', 'xMinYMid')
+                        .attr('width', width)
+                        .attr('height', height)
+                        .datum(loadFoodPriceData(year));
+
+                setChartViewBox();
+                resizeChart();
+
+                // These resizes both do the same thing, and require recalculating the chart
+                nv.utils.windowResize(resizeChart);
+
+                d3.select('#zoomIn').on('click', zoomIn);
+                d3.select('#zoomOut').on('click', zoomOut);
+
+                /**
+                 * 
+                 * @returns {undefined}
+                 */
+                function setChartViewBox() {
+                    var w = width * zoom,
+                            h = height * zoom;
+
+                    chart
+                            .width(w)
+                            .height(h);
+
+                    d3.select('#chart1 svg')
+                            .attr('viewBox', '-20 -10 ' + w + ' ' + h)
+                            .transition().duration(500)
+                            .call(chart);
+                }
+
+                /**
+                 * Zoom out chart
+                 * @returns {undefined}
+                 */
+                function zoomOut() {
+                    zoom += .25;
+                    setChartViewBox();
+                }
+                /**
+                 * Zoom in chart
+                 * @returns {unresolved}
+                 */
+                function zoomIn() {
+                    if (zoom <= .5)
+                        return;
+                    zoom -= .25;
+                    setChartViewBox();
+                }
+
+                /**
+                 * This resize simply sets the SVG's dimensions, 
+                 * without a need to recall the chart code
+                 * Resizing because of the viewbox and perserveAspectRatio settings
+                 * This scales the interior of the chart unlike the above
+                 * @returns {undefined}
+                 */
+                function resizeChart() {
+                    var container = d3.select('#chart1');
+                    var svg = container.select('svg');
+
+                    if (fitScreen) {
+                        // resize based on container's width AND HEIGHT
+                        var windowSize = nv.utils.windowSize();
+                        svg.attr("width", windowSize.width);
+                        svg.attr("height", windowSize.height);
+                    } else {
+                        // resize based on container's width
+                        var aspect = chart.width() / chart.height();
+                        var targetWidth = parseInt(container.style('width'));
+                        svg.attr("width", targetWidth + 50);
+                        svg.attr("height", Math.round(targetWidth / aspect));
+                    }
+                }
+                ;
+                return chart;
+            });
+
+
+            /**
+             * Callback loading data into our line chart
+             * @param {Number} year
+             * @returns {Array}
+             */
+            function loadFoodPriceData(year) {
+                var bread, lamb, salmon, rumpSteak;
+                bread = [];
+                lamb = [];
+                salmon = [];
+                rumpSteak = [];
+                var counter = average_prices_by_year.length;
+                console.log('Year ' + year);
+                var month = 0;
+                for (var i = 0; i < counter; i++) {
+
+                    if (-1 !== average_prices_by_year[i].Year.indexOf(year)) {
+                        ++month;
+                        console.log(month);
+                        lamb.push({x: month, y: average_prices_by_year[i].lamb / 100});
+                        bread.push({x: month, y: average_prices_by_year[i].bread / 100});
+
+                        salmon.push({x: month, y: average_prices_by_year[i].salmon / 100});
+                        rumpSteak.push({x: month, y: average_prices_by_year[i].rump_steak / 100});
+                    }
+
+
+                }
+                console.log(bread);
+                console.log(salmon);
+                console.log(lamb);
+                console.log(rumpSteak);
+
+                return [
+                    {
+                        values: bread,
+                        key: "Bread white loaf sliced",
+                        color: "#ff7f0e"
+                    },
+                    {
+                        values: lamb,
+                        key: "Lamb imported leg",
+                        color: "#2ca02c"
+                    },
+                    {
+                        values: salmon,
+                        key: "Salmon fillets",
+                        color: "salmon"
+                    },
+                    {
+                        values: rumpSteak,
+                        key: "Beef home killed rump steak",
+                        color: "#961943"
+                    }
+                ];
+            }
+
+
+        }
+
+
+
+    </script>
+</body>
+
+
