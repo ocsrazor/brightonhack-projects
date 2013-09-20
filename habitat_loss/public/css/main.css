@@ -80,22 +80,23 @@ footer {
 
 .houses {
 	background: url(images/houses.png) top left no-repeat;
+    height: 300px;
 
 }
 
 .frog {
-height: 150px;
-width: 150px;
--moz-border-radius: 75px;
-border-radius: 75px;
-border: 3px solid #000;
-float: right;
-margin: 50px 0 50px 0;
-text-align: center;
-font-family: 'Alegreya', serif;
-font-size:42px;
-line-height: 30px;
-color: #968bd7;
+    background: none repeat scroll 0 0 #CDD68E;
+    border: 3px solid #000000;
+    border-radius: 150px 150px 150px 150px;
+    color: #FFFFFF;
+    float: right;
+    font-family: 'Alegreya',serif;
+    font-size: 48px;
+    height: 300px;
+    line-height: 30px;
+    margin: 50px 0;
+    text-align: center;
+    width: 300px;
 }
 
 .frog span {
@@ -108,11 +109,11 @@ color: #968bd7;
 }
 
 .poem{
-    color: #585B7C;
+color: #63710A;
     font-family: 'Alegreya',serif;
     font-size: 18px;
     margin-top: 57px;
-    position: absolute;   
+    position: absolute;
 }
 
 .explanation{
