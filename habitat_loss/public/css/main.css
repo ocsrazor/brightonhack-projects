@@ -91,7 +91,7 @@ footer {
     color: #FFFFFF;
     float: right;
     font-family: 'Alegreya',serif;
-    font-size: 48px;
+    font-size: 80px;
     height: 300px;
     line-height: 30px;
     margin: 50px 0;
@@ -102,14 +102,14 @@ footer {
 .frog span {
     display: block; 
     width: 75%;
-    margin: 38px auto 0 auto; 
-    line-height: 20px;
+    margin: 105px auto 0 auto; 
+    line-height: 30px;
     font-size:19px;
     color: #111;
 }
 
 .poem{
-color: #63710A;
+color: #000;
     font-family: 'Alegreya',serif;
     font-size: 18px;
     margin-top: 57px;

@@ -125,7 +125,7 @@ var chart = {
         d3.select("#chart")
             .transition()
             .duration(500)
-            .style("background-color", textCol)
+            //.style("background-color", textCol)
             .text(total.toFixed(4));
 
             that.lastTotal = total;
