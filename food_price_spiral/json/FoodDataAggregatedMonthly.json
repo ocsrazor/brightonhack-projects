@@ -1,0 +1,642 @@
+[
+    {
+        "Year": "2002 DEC",
+        "Avg price": "12107",
+        "Gradient": ""
+    },
+    {
+        "Year": "2003 JAN",
+        "Avg price": "11885",
+        "Gradient": "-222.00000"
+    },
+    {
+        "Year": "2003 FEB",
+        "Avg price": "11932",
+        "Gradient": "47.00000"
+    },
+    {
+        "Year": "2003 MAR",
+        "Avg price": "11968",
+        "Gradient": "36.00000"
+    },
+    {
+        "Year": "2003 APR",
+        "Avg price": "12074",
+        "Gradient": "106.00000"
+    },
+    {
+        "Year": "2003 MAY",
+        "Avg price": "12397",
+        "Gradient": "323.00000"
+    },
+    {
+        "Year": "2003 JUN",
+        "Avg price": "12258",
+        "Gradient": "-139.00000"
+    },
+    {
+        "Year": "2003 JUL",
+        "Avg price": "12277",
+        "Gradient": "19.00000"
+    },
+    {
+        "Year": "2003 AUG",
+        "Avg price": "12119",
+        "Gradient": "-158.00000"
+    },
+    {
+        "Year": "2003 SEP",
+        "Avg price": "12302",
+        "Gradient": "183.00000"
+    },
+    {
+        "Year": "2003 OCT",
+        "Avg price": "12241",
+        "Gradient": "-61.00000"
+    },
+    {
+        "Year": "2003 NOV",
+        "Avg price": "12297",
+        "Gradient": "56.00000"
+    },
+    {
+        "Year": "2003 DEC",
+        "Avg price": "12450",
+        "Gradient": "153.00000"
+    },
+    {
+        "Year": "2004 JAN",
+        "Avg price": "12261",
+        "Gradient": "-189.00000"
+    },
+    {
+        "Year": "2004 FEB",
+        "Avg price": "12227",
+        "Gradient": "-34.00000"
+    },
+    {
+        "Year": "2004 MAR",
+        "Avg price": "12271",
+        "Gradient": "44.00000"
+    },
+    {
+        "Year": "2004 APR",
+        "Avg price": "12301",
+        "Gradient": "30.00000"
+    },
+    {
+        "Year": "2004 MAY",
+        "Avg price": "12431",
+        "Gradient": "130.00000"
+    },
+    {
+        "Year": "2004 JUN",
+        "Avg price": "12412",
+        "Gradient": "-19.00000"
+    },
+    {
+        "Year": "2004 JUL",
+        "Avg price": "12271",
+        "Gradient": "-141.00000"
+    },
+    {
+        "Year": "2004 AUG",
+        "Avg price": "12203",
+        "Gradient": "-68.00000"
+    },
+    {
+        "Year": "2004 SEP",
+        "Avg price": "12165",
+        "Gradient": "-38.00000"
+    },
+    {
+        "Year": "2004 OCT",
+        "Avg price": "12083",
+        "Gradient": "-82.00000"
+    },
+    {
+        "Year": "2004 NOV",
+        "Avg price": "12164",
+        "Gradient": "81.00000"
+    },
+    {
+        "Year": "2004 DEC",
+        "Avg price": "12262",
+        "Gradient": "98.00000"
+    },
+    {
+        "Year": "2005 JAN",
+        "Avg price": "12228",
+        "Gradient": "-34.00000"
+    },
+    {
+        "Year": "2005 FEB",
+        "Avg price": "11953",
+        "Gradient": "-275.00000"
+    },
+    {
+        "Year": "2005 MAR",
+        "Avg price": "12050",
+        "Gradient": "97.00000"
+    },
+    {
+        "Year": "2005 APR",
+        "Avg price": "11971",
+        "Gradient": "-79.00000"
+    },
+    {
+        "Year": "2005 MAY",
+        "Avg price": "12123",
+        "Gradient": "152.00000"
+    },
+    {
+        "Year": "2005 JUN",
+        "Avg price": "12304",
+        "Gradient": "181.00000"
+    },
+    {
+        "Year": "2005 JUL",
+        "Avg price": "12137",
+        "Gradient": "-167.00000"
+    },
+    {
+        "Year": "2005 AUG",
+        "Avg price": "12044",
+        "Gradient": "-93.00000"
+    },
+    {
+        "Year": "2005 SEP",
+        "Avg price": "12009",
+        "Gradient": "-35.00000"
+    },
+    {
+        "Year": "2005 OCT",
+        "Avg price": "11970",
+        "Gradient": "-39.00000"
+    },
+    {
+        "Year": "2005 NOV",
+        "Avg price": "12110",
+        "Gradient": "140.00000"
+    },
+    {
+        "Year": "2005 DEC",
+        "Avg price": "12142",
+        "Gradient": "32.00000"
+    },
+    {
+        "Year": "2006 JAN",
+        "Avg price": "12049",
+        "Gradient": "-93.00000"
+    },
+    {
+        "Year": "2006 FEB",
+        "Avg price": "12382",
+        "Gradient": "333.00000"
+    },
+    {
+        "Year": "2006 MAR",
+        "Avg price": "12265",
+        "Gradient": "-117.00000"
+    },
+    {
+        "Year": "2006 APR",
+        "Avg price": "12344",
+        "Gradient": "79.00000"
+    },
+    {
+        "Year": "2006 MAY",
+        "Avg price": "12631",
+        "Gradient": "287.00000"
+    },
+    {
+        "Year": "2006 JUN",
+        "Avg price": "12867",
+        "Gradient": "236.00000"
+    },
+    {
+        "Year": "2006 JUL",
+        "Avg price": "12907",
+        "Gradient": "40.00000"
+    },
+    {
+        "Year": "2006 AUG",
+        "Avg price": "12950",
+        "Gradient": "43.00000"
+    },
+    {
+        "Year": "2006 SEP",
+        "Avg price": "12973",
+        "Gradient": "23.00000"
+    },
+    {
+        "Year": "2006 OCT",
+        "Avg price": "13075",
+        "Gradient": "102.00000"
+    },
+    {
+        "Year": "2006 NOV",
+        "Avg price": "13269",
+        "Gradient": "194.00000"
+    },
+    {
+        "Year": "2006 DEC",
+        "Avg price": "13312",
+        "Gradient": "43.00000"
+    },
+    {
+        "Year": "2007 JAN",
+        "Avg price": "13166",
+        "Gradient": "-146.00000"
+    },
+    {
+        "Year": "2007 FEB",
+        "Avg price": "13170",
+        "Gradient": "4.00000"
+    },
+    {
+        "Year": "2007 MAR",
+        "Avg price": "13192",
+        "Gradient": "22.00000"
+    },
+    {
+        "Year": "2007 APR",
+        "Avg price": "13207",
+        "Gradient": "15.00000"
+    },
+    {
+        "Year": "2007 MAY",
+        "Avg price": "13254",
+        "Gradient": "47.00000"
+    },
+    {
+        "Year": "2007 JUN",
+        "Avg price": "13464",
+        "Gradient": "210.00000"
+    },
+    {
+        "Year": "2007 JUL",
+        "Avg price": "13128",
+        "Gradient": "-336.00000"
+    },
+    {
+        "Year": "2007 AUG",
+        "Avg price": "13212",
+        "Gradient": "84.00000"
+    },
+    {
+        "Year": "2007 SEP",
+        "Avg price": "13265",
+        "Gradient": "53.00000"
+    },
+    {
+        "Year": "2007 OCT",
+        "Avg price": "13397",
+        "Gradient": "132.00000"
+    },
+    {
+        "Year": "2007 NOV",
+        "Avg price": "13436",
+        "Gradient": "39.00000"
+    },
+    {
+        "Year": "2007 DEC",
+        "Avg price": "13517",
+        "Gradient": "81.00000"
+    },
+    {
+        "Year": "2008 JAN",
+        "Avg price": "13474",
+        "Gradient": "-43.00000"
+    },
+    {
+        "Year": "2008 FEB",
+        "Avg price": "13481",
+        "Gradient": "7.00000"
+    },
+    {
+        "Year": "2008 MAR",
+        "Avg price": "13499",
+        "Gradient": "18.00000"
+    },
+    {
+        "Year": "2008 APR",
+        "Avg price": "13903",
+        "Gradient": "404.00000"
+    },
+    {
+        "Year": "2008 MAY",
+        "Avg price": "14326",
+        "Gradient": "423.00000"
+    },
+    {
+        "Year": "2008 JUN",
+        "Avg price": "14836",
+        "Gradient": "510.00000"
+    },
+    {
+        "Year": "2008 JUL",
+        "Avg price": "14916",
+        "Gradient": "80.00000"
+    },
+    {
+        "Year": "2008 AUG",
+        "Avg price": "15010",
+        "Gradient": "94.00000"
+    },
+    {
+        "Year": "2008 SEP",
+        "Avg price": "15065",
+        "Gradient": "55.00000"
+    },
+    {
+        "Year": "2008 OCT",
+        "Avg price": "15052",
+        "Gradient": "-13.00000"
+    },
+    {
+        "Year": "2008 NOV",
+        "Avg price": "15183",
+        "Gradient": "131.00000"
+    },
+    {
+        "Year": "2008 DEC",
+        "Avg price": "15218",
+        "Gradient": "35.00000"
+    },
+    {
+        "Year": "2009 JAN",
+        "Avg price": "15203",
+        "Gradient": "-15.00000"
+    },
+    {
+        "Year": "2009 FEB",
+        "Avg price": "15747",
+        "Gradient": "544.00000"
+    },
+    {
+        "Year": "2009 MAR",
+        "Avg price": "15646",
+        "Gradient": "-101.00000"
+    },
+    {
+        "Year": "2009 APR",
+        "Avg price": "15597",
+        "Gradient": "-49.00000"
+    },
+    {
+        "Year": "2009 MAY",
+        "Avg price": "15798",
+        "Gradient": "201.00000"
+    },
+    {
+        "Year": "2009 JUN",
+        "Avg price": "15842",
+        "Gradient": "44.00000"
+    },
+    {
+        "Year": "2009 JUL",
+        "Avg price": "15634",
+        "Gradient": "-208.00000"
+    },
+    {
+        "Year": "2009 AUG",
+        "Avg price": "15561",
+        "Gradient": "-73.00000"
+    },
+    {
+        "Year": "2009 SEP",
+        "Avg price": "15382",
+        "Gradient": "-179.00000"
+    },
+    {
+        "Year": "2009 OCT",
+        "Avg price": "15521",
+        "Gradient": "139.00000"
+    },
+    {
+        "Year": "2009 NOV",
+        "Avg price": "15520",
+        "Gradient": "-1.00000"
+    },
+    {
+        "Year": "2009 DEC",
+        "Avg price": "15688",
+        "Gradient": "168.00000"
+    },
+    {
+        "Year": "2010 JAN",
+        "Avg price": "15750",
+        "Gradient": "62.00000"
+    },
+    {
+        "Year": "2010 FEB",
+        "Avg price": "15991",
+        "Gradient": "241.00000"
+    },
+    {
+        "Year": "2010 MAR",
+        "Avg price": "15928",
+        "Gradient": "-63.00000"
+    },
+    {
+        "Year": "2010 APR",
+        "Avg price": "16014",
+        "Gradient": "86.00000"
+    },
+    {
+        "Year": "2010 MAY",
+        "Avg price": "16035",
+        "Gradient": "21.00000"
+    },
+    {
+        "Year": "2010 JUN",
+        "Avg price": "16162",
+        "Gradient": "127.00000"
+    },
+    {
+        "Year": "2010 JUL",
+        "Avg price": "16271",
+        "Gradient": "109.00000"
+    },
+    {
+        "Year": "2010 AUG",
+        "Avg price": "16303",
+        "Gradient": "32.00000"
+    },
+    {
+        "Year": "2010 SEP",
+        "Avg price": "16123",
+        "Gradient": "-180.00000"
+    },
+    {
+        "Year": "2010 OCT",
+        "Avg price": "16254",
+        "Gradient": "131.00000"
+    },
+    {
+        "Year": "2010 NOV",
+        "Avg price": "16480",
+        "Gradient": "226.00000"
+    },
+    {
+        "Year": "2010 DEC",
+        "Avg price": "16717",
+        "Gradient": "237.00000"
+    },
+    {
+        "Year": "2011 JAN",
+        "Avg price": "16749",
+        "Gradient": "32.00000"
+    },
+    {
+        "Year": "2011 FEB",
+        "Avg price": "16973",
+        "Gradient": "224.00000"
+    },
+    {
+        "Year": "2011 MAR",
+        "Avg price": "16961",
+        "Gradient": "-12.00000"
+    },
+    {
+        "Year": "2011 APR",
+        "Avg price": "16812",
+        "Gradient": "-149.00000"
+    },
+    {
+        "Year": "2011 MAY",
+        "Avg price": "17337",
+        "Gradient": "525.00000"
+    },
+    {
+        "Year": "2011 JUN",
+        "Avg price": "17596",
+        "Gradient": "259.00000"
+    },
+    {
+        "Year": "2011 JUL",
+        "Avg price": "17504",
+        "Gradient": "-92.00000"
+    },
+    {
+        "Year": "2011 AUG",
+        "Avg price": "17554",
+        "Gradient": "50.00000"
+    },
+    {
+        "Year": "2011 SEP",
+        "Avg price": "17581",
+        "Gradient": "27.00000"
+    },
+    {
+        "Year": "2011 OCT",
+        "Avg price": "17449",
+        "Gradient": "-132.00000"
+    },
+    {
+        "Year": "2011 NOV",
+        "Avg price": "17677",
+        "Gradient": "228.00000"
+    },
+    {
+        "Year": "2011 DEC",
+        "Avg price": "17616",
+        "Gradient": "-61.00000"
+    },
+    {
+        "Year": "2012 JAN",
+        "Avg price": "17823",
+        "Gradient": "207.00000"
+    },
+    {
+        "Year": "2012 FEB",
+        "Avg price": "18091",
+        "Gradient": "268.00000"
+    },
+    {
+        "Year": "2012 MAR",
+        "Avg price": "18065",
+        "Gradient": "-26.00000"
+    },
+    {
+        "Year": "2012 APR",
+        "Avg price": "17936",
+        "Gradient": "-129.00000"
+    },
+    {
+        "Year": "2012 MAY",
+        "Avg price": "18116",
+        "Gradient": "180.00000"
+    },
+    {
+        "Year": "2012 JUN",
+        "Avg price": "18045",
+        "Gradient": "-71.00000"
+    },
+    {
+        "Year": "2012 JUL",
+        "Avg price": "17933",
+        "Gradient": "-112.00000"
+    },
+    {
+        "Year": "2012 AUG",
+        "Avg price": "17985",
+        "Gradient": "52.00000"
+    },
+    {
+        "Year": "2012 SEP",
+        "Avg price": "17952",
+        "Gradient": "-33.00000"
+    },
+    {
+        "Year": "2012 OCT",
+        "Avg price": "18057",
+        "Gradient": "105.00000"
+    },
+    {
+        "Year": "2012 NOV",
+        "Avg price": "18073",
+        "Gradient": "16.00000"
+    },
+    {
+        "Year": "2012 DEC",
+        "Avg price": "18328",
+        "Gradient": "255.00000"
+    },
+    {
+        "Year": "2013 JAN",
+        "Avg price": "18324",
+        "Gradient": "-4.00000"
+    },
+    {
+        "Year": "2013 FEB",
+        "Avg price": "18464",
+        "Gradient": "140.00000"
+    },
+    {
+        "Year": "2013 MAR",
+        "Avg price": "18342",
+        "Gradient": "-122.00000"
+    },
+    {
+        "Year": "2013 APR",
+        "Avg price": "18424",
+        "Gradient": "82.00000"
+    },
+    {
+        "Year": "2013 MAY",
+        "Avg price": "18543",
+        "Gradient": "119.00000"
+    },
+    {
+        "Year": "2013 JUN",
+        "Avg price": "18683",
+        "Gradient": "140.00000"
+    },
+    {
+        "Year": "2013 JUL",
+        "Avg price": "18809",
+        "Gradient": "126.00000"
+    }
+]

@@ -1,0 +1,90 @@
+/* #main-wrapper{
+    border:1px solid black;
+} */
+body {
+		background-color:#333;
+        font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+        margin: 40px;
+      }
+.axis path {
+    fill: none;
+    stroke: #999;
+    stroke-dasharray: 2 3;
+    display: none;
+}
+.axis text {
+    font-size: 13px;
+    stroke: #222;
+    display: none;
+}
+text.title {
+        font-size: 24px;
+        display: none;
+}
+circle.tick {
+    fill: #f3f3f3;
+    stroke: #999;
+    stroke-dasharray: 2 3;
+    display: none;
+}
+path.spiral {
+    fill: none;
+    stroke: #000;
+    stroke-width: 3px;
+}
+
+#main-wrapper
+{
+	width:800px;
+	margin: 0 auto;
+}
+#main-wrapper .spiral-year{
+    font: normal 18px arial;
+}
+
+h1
+{
+	color: white;
+	margin:0 auto;
+	width:800px;
+	text-align: center;
+}
+
+#explanation p
+{
+	color: white;
+	margin:0 auto;
+	width:800px;
+	font-size: 10px;
+	text-align: center;
+}
+.popover {
+	position: absolute;
+	display: none;
+	z-index: 2;
+	height: 500px;
+	width: 800px;
+	background-color: #eaeaea;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+.popover h1{
+    color: grey;
+}
+#chartZoom a{
+    padding: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    background-color: #dfdfdf;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: #6D6D6D;
+}
+
+#chartZoom a:hover {
+background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+background: -moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+background-color: #dfdfdf;
+}
