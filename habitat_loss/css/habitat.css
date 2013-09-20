@@ -1,22 +1,27 @@
 /*Habitat Styles */
+#chart {
+  width: 600px;
+  height: 650px;
+  margin: 0 auto;
+  background-color: lightblue; /*#92B4CA;*/
+}
+
 .land {
   fill: #fff;
   stroke: #ccc;
 }
 
-.bgCounty {
-	
-  fill: #000; /* black */
-  stroke: #fff; /* white */
+.bgcounty {
+  fill: #777;
+  stroke: #ccc;
 }
 
 .county {
-  fill: #ccc; /* grey */
-  /*stroke: #666;*/
+  fill: forestgreen;
+  stroke: #ccc;
 }
 
 /* Slider styles*/
-
 .slider_wrapper{
 
 }

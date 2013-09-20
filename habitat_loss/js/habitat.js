@@ -2,8 +2,8 @@
 var chart = {
 
     config: {
-        width: 800,
-        height: 1000,
+        width: 600,
+        height: 650,
     },
 
     constructed: false,
@@ -12,7 +12,7 @@ var chart = {
     projection: null,
     path: null,
     // extent: null,
-    // scale: null,
+    colorScale: null,
     g: null, // group element for chart
     popAndGeo: [],
     total: 0.0,
@@ -42,8 +42,10 @@ var chart = {
     },
 
     init: function () {
-        this.g = d3.select('body')
+        this.g = d3.select('#chart')
             .append('svg')
+            .attr('width', this.config.width)
+            .attr('height', this.config.height)
             .append('g')
             .attr('transform', this.translate(50, 50));
 
@@ -53,7 +55,7 @@ var chart = {
             .rotate([4.4, 0])
             .parallels([50, 60])
             .scale(5700)
-            .translate([250, 250]);
+            .translate([100, 250]);
 
         path = d3.geo.path()
             .projection(projection);
@@ -61,7 +63,7 @@ var chart = {
         // this.extent = d3.extent(this.data, function (d) {
         //     return d["2011 Q2"];
         // });
-        // this.scale = d3.scale.linear().domain(this.extent).range(['white', 'blue']);
+        this.colorScale = d3.scale.linear().domain([0,1]).range(['red', 'forestgreen']);
     },
 
     make: function () {
@@ -98,17 +100,19 @@ var chart = {
 
         total = 0;
         
-        this.g.selectAll("." + "county")
-       // .data(chart.popAndGeo)
-        .transition()
-        .duration(150)
-        .attr("transform", function (d) {
-            total += d[that.quarters2[quarter]];
-            var centroid = path.centroid(d.geo_json),
-                x = centroid[0],
-                y = centroid[1];
-            return "translate(" + x + "," + y + ")" + "scale(" + (d[that.quarters2[quarter]] || 0) + ")" + "translate(" + -x + "," + -y + ")";
-        });
+        this.g.selectAll(".county")
+            .transition()
+            .duration(150)
+            .style('fill', function(d) {
+                return that.colorScale(d[that.quarters2[quarter]]);
+            })
+            .attr("transform", function (d) {
+                total += d[that.quarters2[quarter]];
+                var centroid = path.centroid(d.geo_json),
+                    x = centroid[0],
+                    y = centroid[1];
+                return "translate(" + x + "," + y + ")" + "scale(" + (d[that.quarters2[quarter]] || 0) + ")" + "translate(" + -x + "," + -y + ")";
+            });
 
         // give some feedback to user:
         if(total > that.lastTotal){
