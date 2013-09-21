@@ -1,15 +1,63 @@
 /*Habitat Styles */
+.the-map {
+  margin-left: 52px;
+}
+
+#chart {
+  margin: 0 auto;
+  background-color: transparent; /*#92B4CA;*/
+}
+
 .land {
   fill: #fff;
   stroke: #ccc;
 }
 
-.bgCounty {
-  fill: #000;
-  stroke: #fff;
+.bgcounty {
+  fill: #777;
+  stroke: #ccc;
 }
 
 .county {
-  fill: #ccc;
-  /*stroke: #666;*/
+  fill: #63710A;
+  stroke: #ccc;
+}
+
+/* Slider styles*/
+.slider_wrapper{
+
+}
+.axis text {
+  font: 11px sans-serif;
+}
+
+.axis path {
+  display: none;
+}
+
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.grid-background {
+  fill: #ddd;
+}
+
+.grid line,
+.grid path {
+  fill: none;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.grid .minor.tick line {
+  stroke-opacity: .5;
+}
+
+.brush .extent {
+  stroke: #000;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
 }
