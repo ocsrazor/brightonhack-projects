@@ -84,6 +84,8 @@ function brushended() {
     extent1[0] = d3.time.month.floor(extent0[0]);
     extent1[1] = d3.time.month.ceil(extent0[1]);
   }
+  console.log(extent1[0]);
+  chart.drawHomelessData(extent1[0]);
 
   d3.select(this).transition()
       .call(brush.extent(extent1))

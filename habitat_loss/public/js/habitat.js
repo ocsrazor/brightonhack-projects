@@ -9,6 +9,7 @@ var chart = {
     constructed: false,
     popAndGeoData: null,
     quarters2: [],
+    quarters: [],
     projection: null,
     path: null,
     // extent: null,
@@ -38,6 +39,12 @@ var chart = {
         console.log(this.popAndGeo);
 
         this.quarters2 = ["2011 Q2", "2011 Q3", "2011 Q4", "2012 Q1", "2012 Q2", "2012 Q3", "2012 Q4", "2013 Q1"];
+
+        this.quarters = ["2005 Q1", "2005 Q2","2005 Q3","2005 Q4","2006 Q1","2006 Q2","2006 Q3","2006 Q4",
+                          "2007 Q1", "2007 Q2","2007 Q3","2007 Q4","2008 Q1","2008 Q2","2008 Q3","2008 Q4",
+                          "2009 Q1", "2009 Q2","2009 Q3","2009 Q4","2010 Q1","2010 Q2","2010 Q3","2010 Q4",
+                          "2011 Q1", "2011 Q2","2011 Q3","2011 Q4","2012 Q1","2012 Q2","2012 Q3","2012 Q4", 
+                          "2013 Q1", "2013 Q2","2013 Q3","2013 Q4"];
 
     },
 
@@ -107,6 +114,8 @@ var chart = {
                 return that.colorScale(d[that.quarters2[quarter]]);
             })
             .attr("transform", function (d) {
+                 console.log(quarter);
+                // console.log(d[that.quarters2[quarter]]);
                 total += d[that.quarters2[quarter]];
                 var centroid = path.centroid(d.geo_json),
                     x = centroid[0],
@@ -137,6 +146,8 @@ var chart = {
 
 // only using this data now, delete other json loads after testing.
 d3.json('data/countyPopAndGeo.json', function (err, jsonPopAndGeoData) {
+//    d3.json('data/countyData.json', function (err, jsonPopAndGeoData) {
+    
     chart.popAndGeoData = jsonPopAndGeoData;
 
     chart.initData();

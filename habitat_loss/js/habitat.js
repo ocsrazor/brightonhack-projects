@@ -107,6 +107,7 @@ var chart = {
                 return that.colorScale(d[that.quarters2[quarter]]);
             })
             .attr("transform", function (d) {
+                console.log(d[that.quarters2[quarter]]);
                 total += d[that.quarters2[quarter]];
                 var centroid = path.centroid(d.geo_json),
                     x = centroid[0],

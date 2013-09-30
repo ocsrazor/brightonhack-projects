@@ -19,7 +19,7 @@ var sliderObj = {
     brushended : function() {
         if (delay-- < 0) { // need to reduce leap motion "frame rate"
             delay = delayReset;
-            //chart.drawHomelessData(counter++);
+            // chart.drawHomelessData(counter++);
             // if (counter > (chart.quarters2.length -1)) { // hardcoded length of homeless data: 8 here
             //     counter = 0;
             // }
@@ -102,9 +102,7 @@ var sliderObj = {
     gBrush.selectAll("rect")
         .attr("height", height);
 
-    },    
-
-   
+    },
 
     updateSlider: function(leapPoint) {
 
